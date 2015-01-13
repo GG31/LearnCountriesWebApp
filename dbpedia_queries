@@ -1,0 +1,20 @@
+prefix o: <http://dbpedia.org/ontology/>
+prefix f: <http://dbpedia.org/page/>
+
+
+select * where {
+
+?x a o:Country.
+OPTIONAL {?x dbpprop:commonName ?name }
+OPTIONAL {?x dbpprop:capital ?capital }
+OPTIONAL {?x dbpedia-owl:language ?lang }
+OPTIONAL {?x dbpprop:continent ?continent }
+OPTIONAL {?x dbpprop:leaderName ?president }
+OPTIONAL {?x dbpprop:englishmotto ?devise }
+OPTIONAL {?x dbpprop:areaKm ?surface }
+OPTIONAL {?x dbpedia-owl:abstract ?histoire }
+OPTIONAL {?x dbpedia-owl:largestCity ?plusGrandeVille }
+
+
+}
+
