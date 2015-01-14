@@ -1,0 +1,15 @@
+<html>
+<body>
+<form action="http://localhost:8080/sparql" method="GET">
+   <textarea name="query">
+   select ?x where {
+      service <http://dbpedia.org/sparql> {
+         ?x a <http://dbpedia.org/ontology/Country>
+      }
+   }
+
+   </textarea>
+   <input type="submit"/>
+</form>
+</body>
+</html>
