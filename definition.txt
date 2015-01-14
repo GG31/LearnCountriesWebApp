@@ -1,0 +1,36 @@
+Pays
+	-nom/
+	-capitale/
+	-monnaie
+	-richesse du pays
+	-langue/
+	-devise/
+	-président (année | "")/
+	-surface/
+	-population
+	-longueur de côte
+	-statut politique
+	-histoire (tranche d'année | "")/
+	-plus grosses villes/
+	-spécialités
+	-climat
+	-religion
+	-coutumes
+
+
+Site d'apprentissage des pays
+	-lecons
+		-infos sur les pays
+		-Placement de pays
+		-Modification des infos si elles sont fausses
+	-exercices
+		-Question / reponse
+		-Placement de pays
+		-Ordonnancement des pays en fonction d'un critere (richesse,...)
+
+
+Source : 
+	-dbpedia
+
+
+	
