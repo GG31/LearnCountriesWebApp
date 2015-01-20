@@ -9,16 +9,23 @@
   xml:base="http://www.w3.org/2000/01/rdf-schema#" >
 
 <rdfs:Class rdf:ID="Continent">
+   <rdfs:label>Continent</rdfs:label>
 </rdfs:Class>
 <rdfs:Class rdf:ID="Pays">
+   <rdfs:label>Pays</rdfs:label>
 </rdfs:Class>
 <rdfs:Class rdf:ID="Name">
+   <rdfs:label>Name</rdfs:label>
 </rdfs:Class>
 <rdfs:Class rdf:ID="Ville">
+   <rdfs:label>Ville</rdfs:label>
 </rdfs:Class>
 <rdfs:Class rdf:ID="Group">
+   <rdfs:label>Group</rdfs:label>
+   <rdfs:comment>Un group est un ensemble.</rdfs:comment>
 </rdfs:Class>
 <rdfs:Class rdf:ID="Langue">
+   <rdfs:label>Langue</rdfs:label>
 </rdfs:Class>
 
 <rdf:Property rdf:ID="originName">
@@ -73,6 +80,11 @@
 <rdf:Property rdf:ID="zone">
   <rdfs:domain rdf:resource="Pays"/>
   <rdfs:range rdf:resource="Group"/>
+</rdf:Property>
+
+<rdf:Property rdf:ID="question">
+  <rdfs:domain rdf:resource="Group"/>
+  <rdfs:range rdf:datatype="&xsd;string"/>
 </rdf:Property>
 
 </rdf:RDF>

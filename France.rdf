@@ -251,4 +251,13 @@
    <dc:hasName rdf:datatype="&xsd;string">Espagnol</dc:hasName>
 </rdf:Description>
 
+<rdf:Description rdf:about="QuestionsGroup">
+   <rdf:type rdf:resource="Group"/>
+   <dc:question rdf:datatype="&xsd;string">Langue ?</dc:question>
+   <dc:question rdf:datatype="&xsd;string">Capitale ?</dc:question>
+   <dc:question rdf:datatype="&xsd;string">Surface de forêt ?</dc:question>
+   <dc:question rdf:datatype="&xsd;string">Group ?</dc:question>
+   <dc:question rdf:datatype="&xsd;string">Ville ?</dc:question>
+</rdf:Description>
+
 </rdf:RDF>
