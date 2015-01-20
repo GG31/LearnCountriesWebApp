@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+   <!ENTITY xsd      "http://www.w3.org/2001/XMLSchema#"> ]>
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xsd ="&xsd;"
+	xmlns:base="http://www.LearnCountriesWebApp.fr/" >
+
+<dc:Pays rdf:ID="France">
+   <rdf:type rdf:resource="Pays"/>
+   <dc:originName>
+      <dc:Name rdf:datatype="&xsd;string">franc</dc:Name>
+   </dc:originName>
+   <dc:hasEmpire>
+      <rdf:Description rdf:about="#EmpireColonial"/>
+   </dc:hasEmpire>
+   <dc:memberOf>
+      <rdf:Description rdf:about="OTAN"/>
+   </dc:memberOf>
+   <dc:memberOf>
+      <rdf:Description rdf:about="G7"/>
+   </dc:memberOf>
+   <dc:memberOf>
+      <rdf:Description rdf:about="G20"/>
+   </dc:memberOf>
+   <dc:memberOf>
+      <rdf:Description rdf:about="Zone_Euro"/>
+   </dc:memberOf>
+   <dc:memberOf>
+      <rdf:Description rdf:about="Espace_Schengen"/>
+   </dc:memberOf>
+   <dc:classement rdf:nodeID="classementEco"/>
+   <dc:classement rdf:nodeID="classementEcoMonde"/>
+   <dc:hasClimat>
+      <dc:climat rdf:datatype="&xsd;string">tempéré</dc:climat>
+   </dc:hasClimat>
+   <dc:surfaceForet>
+      <dc:pourcentage rdf:datatype="&xsd;string">28%</dc:pourcentage>
+   </dc:surfaceForet>
+   <dc:hasVille>
+      <dc:ville rdf:datatype="&xsd;string">Toulouse</dc:ville>
+   </dc:hasVille>
+   <dc:hasVille>
+      <dc:ville rdf:datatype="&xsd;string">Marseille</dc:ville>
+   </dc:hasVille>
+   <dc:hasVille>
+      <dc:ville rdf:datatype="&xsd;string">Narbonne</dc:ville>
+   </dc:hasVille>
+   <dc:occupation>
+      <rdf:Description rdf:about="#occupationCelte"/>
+   </dc:occupation>
+</dc:Pays>
+
+<rdf:Description rdf:ID="#occupationCelte">
+   <dc:startSiecle>
+      <dc:siecle rdf:datatype="&xsd;string">-Ve</dc:siecle>
+   </dc:startSiecle>
+   <dc:endSiecle>
+      <dc:siecle rdf:datatype="&xsd;string">-IIIe</dc:siecle>
+   </dc:endSiecle>
+</rdf:Description>
+
+<rdf:Description rdf:ID="#EmpireColonial">
+   <dc:Name rdf:datatype="&xsd;string">Empire Colonial</dc:Name>
+   <dc:startSiecle>
+      <dc:siecle rdf:datatype="&xsd;string">XVII</dc:siecle>
+   </dc:startSiecle>
+   <dc:endSiecle>
+      <dc:siecle rdf:datatype="&xsd;string">XX</dc:siecle>
+   </dc:endSiecle>
+</rdf:Description>
+
+<rdf:Description rdf:ID="#classementEco">
+   <dc:hasDomaine>
+      <dc:domaine rdf:about="Economie">
+   </dc:hasDomaine>
+   <dc:hasEtendu>
+      <dc:zone rdf:about="Zone_Euro"/>
+   </dc:hasEtentu>
+   <dc:hasRang>
+      <dc:rang rdf:datatype="&xsd;integer">2</dc:rang>
+   </dc:hasRang>
+</rdf:Description>
+
+<rdf:Description rdf:ID="#classementEcoMonde">
+   <dc:hasDomaine>
+      <dc:domaine rdf:about="Economie">
+   </dc:hasDomaine>
+   <dc:hasEtendu>
+      <dc:zone rdf:about="Monde"/>
+   </dc:hasEtentu>
+   <dc:hasRang>
+      <dc:rang rdf:datatype="&xsd;integer">5</dc:rang>
+   </dc:hasRang>
+</rdf:Description>
+
+
+<dc:Pays rdf:ID="Allemagne">
+   <dc:originName>
+      <dc:Name rdf:datatype="&xsd;string">Thiuda</dc:Name>
+   </dc:originName>
+   <dc:hasEmpire>
+      <rdf:Description rdf:about="#Empire"/>
+   </dc:hasEmpire>
+   <dc:memberOf>
+      <rdf:Description rdf:about="OTAN"/>
+   </dc:memberOf>
+   <dc:memberOf>
+      <rdf:Description rdf:about="G7"/>
+   </dc:memberOf>
+   <dc:memberOf>
+      <rdf:Description rdf:about="G20"/>
+   </dc:memberOf>
+   <dc:memberOf>
+      <rdf:Description rdf:about="Zone_Euro"/>
+   </dc:memberOf>
+   <dc:memberOf>
+      <rdf:Description rdf:about="Espace_Schengen"/>
+   </dc:memberOf>
+   <dc:classement rdf:nodeID="classementEcoAll"/>
+   <dc:classement rdf:nodeID="classementEcoMondeAll"/>
+   <dc:hasClimat>
+      <dc:climat rdf:datatype="&xsd;string">tempéré</dc:climat>
+   </dc:hasClimat>
+   <dc:surfaceForet>
+      <dc:pourcentage rdf:datatype="&xsd;string">31%</dc:pourcentage>
+   </dc:surfaceForet>
+   <dc:hasVille>
+      <dc:ville rdf:datatype="&xsd;string">Munich</dc:ville>
+   </dc:hasVille>
+   <dc:hasVille>
+      <dc:ville rdf:datatype="&xsd;string">Hambourg</dc:ville>
+   </dc:hasVille>
+   <dc:hasVille>
+      <dc:ville rdf:datatype="&xsd;string">Cologne</dc:ville>
+   </dc:hasVille>
+</dc:Pays>
+
+<rdf:Description rdf:ID="#Empire">
+   <dc:Name rdf:datatype="&xsd;string">Saint-Empire romain germanique</dc:Name>
+   <dc:startSiecle>
+      <dc:siecle rdf:datatype="&xsd;string">-VIe</dc:siecle>
+   </dc:startSiecle>
+   <dc:endSiecle>
+      <dc:siecle rdf:datatype="&xsd;string">-Ie</dc:siecle>
+   </dc:endSiecle>
+</rdf:Description>
+
+<rdf:Description rdf:ID="#classementEcoAll">
+   <dc:hasDomaine>
+      <dc:domaine rdf:about="Economie">
+   </dc:hasDomaine>
+   <dc:hasEtendu>
+      <dc:zone rdf:about="Zone_Euro"/>
+   </dc:hasEtentu>
+   <dc:hasRang>
+      <dc:rang rdf:datatype="&xsd;integer">1</dc:rang>
+   </dc:hasRang>
+</rdf:Description>
+
+<rdf:Description rdf:ID="#classementEcoMondeAll">
+   <dc:hasDomaine>
+      <dc:domaine rdf:about="Economie">
+   </dc:hasDomaine>
+   <dc:hasEtendu>
+      <dc:zone rdf:about="Monde"/>
+   </dc:hasEtentu>
+   <dc:hasRang>
+      <dc:rang rdf:datatype="&xsd;integer">4</dc:rang>
+   </dc:hasRang>
+</rdf:Description>
+
+<dc:Pays rdf:ID="Espagne">
+   <dc:memberOf>
+      <rdf:Description rdf:about="UnionLatine"/>
+   </dc:memberOf>
+   <dc:memberOf>
+      <rdf:Description rdf:about="OTAN"/>
+   </dc:memberOf>
+   <dc:memberOf>
+      <rdf:Description rdf:about="G20"/>
+   </dc:memberOf>
+   <dc:memberOf>
+      <rdf:Description rdf:about="Zone_Euro"/>
+   </dc:memberOf>
+   <dc:memberOf>
+      <rdf:Description rdf:about="Espace_Schengen"/>
+   </dc:memberOf>
+   <dc:classement rdf:nodeID="classementEcoEs"/>
+   <dc:classement rdf:nodeID="classementEcoMondeEs"/>
+   <dc:hasClimat>
+      <dc:climat rdf:datatype="&xsd;string">semi-aride</dc:climat>
+   </dc:hasClimat>
+   <dc:hasClimat>
+      <dc:climat rdf:datatype="&xsd;string">méditerranéen</dc:climat>
+   </dc:hasClimat>
+   <dc:hasClimat>
+      <dc:climat rdf:datatype="&xsd;string">océanique</dc:climat>
+   </dc:hasClimat>
+   <dc:surfaceForet>
+      <dc:pourcentage rdf:datatype="&xsd;string">36%</dc:pourcentage>
+   </dc:surfaceForet>
+   <dc:hasVille>
+      <dc:ville rdf:datatype="&xsd;string">Cadiz</dc:ville>
+   </dc:hasVille>
+   <dc:hasVille>
+      <dc:ville rdf:datatype="&xsd;string">Barcelone</dc:ville>
+   </dc:hasVille>
+   <dc:hasVille>
+      <dc:ville rdf:datatype="&xsd;string">Seville</dc:ville>
+   </dc:hasVille>
+</dc:Pays>
+
+<rdf:Description rdf:ID="#classementEcoEs">
+   <dc:hasDomaine>
+      <dc:domaine rdf:about="Economie">
+   </dc:hasDomaine>
+   <dc:hasEtendu>
+      <dc:zone rdf:about="Zone_Euro"/>
+   </dc:hasEtentu>
+   <dc:hasRang>
+      <dc:rang rdf:datatype="&xsd;integer">6</dc:rang>
+   </dc:hasRang>
+</rdf:Description>
+
+<rdf:Description rdf:ID="#classementEcoMondeEs">
+   <dc:hasDomaine>
+      <dc:domaine rdf:about="Economie"/>
+   </dc:hasDomaine>
+   <dc:hasEtendu>
+      <dc:zone rdf:about="Monde"/>
+   </dc:hasEtentu>
+   <dc:hasRang>
+      <dc:rang rdf:datatype="&xsd;integer">9</dc:rang>
+   </dc:hasRang>
+</rdf:Description>
+
+<rdf:Description rdf:ID="OTAN">
+   <rdf:type rdf:resource="Group"/>
+   <dc:hasName rdf:datatype="&xsd;string">OTAN</dc:hasName>
+<rdf:Description>
+<rdf:Description rdf:ID="G7">
+   <rdf:type rdf:resource="Group"/>
+   <dc:hasName rdf:datatype="&xsd;string">G7</dc:hasName>
+<rdf:Description>
+<rdf:Description rdf:ID="G20">
+   <rdf:type rdf:resource="Group"/>
+   <dc:hasName rdf:datatype="&xsd;string">G20</dc:hasName>
+<rdf:Description>
+<rdf:Description rdf:ID="Espace_Schengen">
+   <rdf:type rdf:resource="Group"/>
+   <dc:hasName rdf:datatype="&xsd;string">Espace Schengen</dc:hasName>
+<rdf:Description>
+<rdf:Description rdf:ID="Zone_Euro">
+   <rdf:type rdf:resource="Group"/>
+   <dc:hasName rdf:datatype="&xsd;string">Europe</dc:hasName>
+   
+<rdf:Description>
+
+</rdf:RDF>
