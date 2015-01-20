@@ -5,15 +5,17 @@
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 	xmlns:xsd ="&xsd;"
-	xmlns:dc ="http://www.LearnCountriesWebApp.fr/ontologie.rdfs"
+	xmlns:dc ="http://www.LearnCountriesWebApp.fr/"
 	xmlns:base="http://www.LearnCountriesWebApp.fr/" >
 
 <dc:Pays rdf:ID="France">
    <rdf:type rdf:resource="Pays"/>
    <dc:originName rdf:datatype="&xsd;string">franc</dc:originName>
-
+   <dc:continent>
+      <rdf:Description rdf:about="Europe"/>
+   </dc:continent>
    <dc:hasEmpire>
-      <rdf:Description rdf:about="#EmpireColonial"/>
+      <rdf:Description rdf:about="EmpireColonial"/>
    </dc:hasEmpire>
    <dc:memberOf>
       <rdf:Description rdf:about="OTAN"/>
@@ -40,22 +42,22 @@
    <dc:ville rdf:datatype="&xsd;string">Marseille</dc:ville>
    <dc:ville rdf:datatype="&xsd;string">Narbonne</dc:ville>
    <dc:occupation>
-      <rdf:Description rdf:about="#occupationCelte"/>
+      <rdf:Description rdf:about="occupationCelte"/>
    </dc:occupation>
 </dc:Pays>
 
-<rdf:Description rdf:ID="occupationCelte">
+<rdf:Description rdf:about="occupationCelte">
       <dc:startsiecle rdf:datatype="&xsd;string">-Ve</dc:startsiecle>
       <dc:endsiecle rdf:datatype="&xsd;string">-IIIe</dc:endsiecle>
 </rdf:Description>
 
-<rdf:Description rdf:ID="EmpireColonial">
+<rdf:Description rdf:about="EmpireColonial">
    <dc:Name rdf:datatype="&xsd;string">Empire Colonial</dc:Name>
    <dc:startsiecle rdf:datatype="&xsd;string">XVII</dc:startsiecle>
    <dc:endsiecle rdf:datatype="&xsd;string">XX</dc:endsiecle>
 </rdf:Description>
 
-<rdf:Description rdf:ID="classementEco">
+<rdf:Description rdf:nodeID="classementEco">
    <dc:domaine>
       <rdf:Description rdf:about="Economie"/>
    </dc:domaine>
@@ -65,7 +67,7 @@
    <dc:rang rdf:datatype="&xsd;integer">2</dc:rang>
 </rdf:Description>
 
-<rdf:Description rdf:ID="classementEcoMonde">
+<rdf:Description rdf:nodeID="classementEcoMonde">
    <dc:domaine>
       <rdf:Description rdf:about="Economie"/>
    </dc:domaine>
@@ -78,8 +80,11 @@
 
 <dc:Pays rdf:ID="Allemagne">
    <dc:originName rdf:datatype="&xsd;string">Thiuda</dc:originName>
+   <dc:continent>
+      <rdf:Description rdf:about="Europe"/>
+   </dc:continent>
    <dc:hasEmpire>
-      <rdf:Description rdf:about="#Empire"/>
+      <rdf:Description rdf:about="Empire"/>
    </dc:hasEmpire>
    <dc:memberOf>
       <rdf:Description rdf:about="OTAN"/>
@@ -105,13 +110,13 @@
    <dc:ville rdf:datatype="&xsd;string">Cologne</dc:ville>
 </dc:Pays>
 
-<rdf:Description rdf:ID="Empire">
+<rdf:Description rdf:about="Empire">
    <dc:Name rdf:datatype="&xsd;string">Saint-Empire romain germanique</dc:Name>
       <dc:startsiecle rdf:datatype="&xsd;string">-VIe</dc:startsiecle>
       <dc:endsiecle rdf:datatype="&xsd;string">-Ie</dc:endsiecle>
 </rdf:Description>
 
-<rdf:Description rdf:ID="classementEcoAll">
+<rdf:Description rdf:nodeID="classementEcoAll">
    <dc:domaine>
       <rdf:Description rdf:about="Economie"/>
    </dc:domaine>
@@ -121,7 +126,7 @@
    <dc:rang rdf:datatype="&xsd;integer">1</dc:rang>
 </rdf:Description>
 
-<rdf:Description rdf:ID="classementEcoMondeAll">
+<rdf:Description rdf:nodeID="classementEcoMondeAll">
    <dc:domaine>
       <rdf:Description rdf:about="Economie"/>
    </dc:domaine>
@@ -132,6 +137,9 @@
 </rdf:Description>
 
 <dc:Pays rdf:ID="Espagne">
+   <dc:continent>
+      <rdf:Description rdf:about="Europe"/>
+   </dc:continent>
    <dc:memberOf>
       <rdf:Description rdf:about="UnionLatine"/>
    </dc:memberOf>
@@ -158,7 +166,7 @@
    <dc:ville rdf:datatype="&xsd;string">Seville</dc:ville>
 </dc:Pays>
 
-<rdf:Description rdf:ID="classementEcoEs">
+<rdf:Description rdf:nodeID="classementEcoEs">
    <dc:domaine>
       <rdf:Description rdf:about="Economie"/>
    </dc:domaine>
@@ -168,7 +176,7 @@
    <dc:rang rdf:datatype="&xsd;integer">6</dc:rang>
 </rdf:Description>
 
-<rdf:Description rdf:ID="classementEcoMondeEs">
+<rdf:Description rdf:nodeID="classementEcoMondeEs">
    <dc:domaine>
       <rdf:Description rdf:about="Economie"/>
    </dc:domaine>
@@ -178,26 +186,31 @@
    <dc:rang rdf:datatype="&xsd;integer">9</dc:rang>
 </rdf:Description>
 
-<rdf:Description rdf:ID="OTAN">
+<rdf:Description rdf:about="OTAN">
    <rdf:type rdf:resource="Group"/>
    <dc:hasName rdf:datatype="&xsd;string">OTAN</dc:hasName>
 </rdf:Description>
-<rdf:Description rdf:ID="G7">
+<rdf:Description rdf:about="G7">
    <rdf:type rdf:resource="Group"/>
    <dc:hasName rdf:datatype="&xsd;string">G7</dc:hasName>
 </rdf:Description>
-<rdf:Description rdf:ID="G20">
+<rdf:Description rdf:about="G20">
    <rdf:type rdf:resource="Group"/>
    <dc:hasName rdf:datatype="&xsd;string">G20</dc:hasName>
 </rdf:Description>
-<rdf:Description rdf:ID="Espace_Schengen">
+<rdf:Description rdf:about="Espace_Schengen">
    <rdf:type rdf:resource="Group"/>
    <dc:hasName rdf:datatype="&xsd;string">Espace Schengen</dc:hasName>
 </rdf:Description>
-<rdf:Description rdf:ID="Zone_Euro">
+<rdf:Description rdf:about="Zone_Euro">
    <rdf:type rdf:resource="Group"/>
    <dc:hasName rdf:datatype="&xsd;string">Europe</dc:hasName>
-   
 </rdf:Description>
+
+<rdf:Description rdf:about="Europe">
+   <rdf:type rdf:resource="Continent"/>
+   <dc:hasName rdf:datatype="&xsd;string">Europe</dc:hasName>
+</rdf:Description>
+
 
 </rdf:RDF>
