@@ -8,33 +8,41 @@
   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
   xml:base="http://www.w3.org/2000/01/rdf-schema#" >
 
+<rdfs:Class rdf:ID="Continent">
+</rdfs:Class>
 <rdfs:Class rdf:ID="Pays">
 </rdfs:Class>
 <rdfs:Class rdf:ID="Name">
 </rdfs:Class>
-<rdfs:Class rdf:ID="climat">
-</rdfs:Class>
-<rdfs:Class rdf:ID="pourcentage">
-</rdfs:Class>
-<rdfs:Class rdf:ID="ville">
-</rdfs:Class>
-<rdfs:Class rdf:ID="siecle">
-</rdfs:Class>
-<rdfs:Class rdf:ID="domaine">
-</rdfs:Class>
-<rdfs:Class rdf:ID="rang">
+<rdfs:Class rdf:ID="Ville">
 </rdfs:Class>
 <rdfs:Class rdf:ID="Group">
+</rdfs:Class>
+<rdfs:Class rdf:ID="Langue">
 </rdfs:Class>
 
 <rdf:Property rdf:ID="originName">
   <rdfs:domain rdf:resource="Pays"/>
-  <rdfs:range rdf:resource="Name"/>
+  <rdfs:range rdf:datatype="&xsd;string"/>
 </rdf:Property>
 
-<rdf:Property rdf:ID="hasEmpire">
+<rdf:Property rdf:ID="continent">
   <rdfs:domain rdf:resource="Pays"/>
-  <rdfs:range rdf:resource="blanknode"/>
+  <rdfs:range rdf:resource="Continent"/>
+</rdf:Property>
+
+<rdf:Property rdf:ID="hasLangue">
+  <rdfs:domain rdf:resource="Pays"/>
+  <rdfs:range rdf:resource="Langue"/>
+</rdf:Property>
+
+<rdf:Property rdf:ID="hasName">
+  <rdfs:domain rdf:resource="Pays"/>
+  <rdfs:domain rdf:resource="Continent"/>
+  <rdfs:domain rdf:resource="Langue"/>
+  <rdfs:domain rdf:resource="Group"/>
+  <rdfs:domain rdf:resource="Ville"/>
+  <rdfs:range rdf:datatype="&xsd;string"/>
 </rdf:Property>
 
 <rdf:Property rdf:ID="memberOf">
@@ -47,22 +55,24 @@
   <rdfs:range rdf:resource="blanknode"/>
 </rdf:Property>
 
-<rdf:Property rdf:ID="hasClimat">
-  <rdfs:domain rdf:resource="Pays"/>
-  <rdfs:range rdf:resource="climat"/>
-</rdf:Property>
-
-<rdf:Property rdf:ID="surfaceForet">
-  <rdfs:domain rdf:resource="Pays"/>
-  <rdfs:range rdf:resource="pourcentage"/>
-</rdf:Property>
-
 <rdf:Property rdf:ID="hasVille">
   <rdfs:domain rdf:resource="Pays"/>
-  <rdfs:range rdf:resource="ville"/>
+  <rdfs:range rdf:resource="Ville"/>
 </rdf:Property>
 
-<rdf:Property rdf:ID="occupation">
+<rdf:Property rdf:ID="climat">
   <rdfs:domain rdf:resource="Pays"/>
-  <rdfs:range rdf:resource="blanknode"/>
+  <rdfs:range rdf:datatype="&xsd;string"/>
 </rdf:Property>
+
+<rdf:Property rdf:ID="foret">
+  <rdfs:domain rdf:resource="Pays"/>
+  <rdfs:range rdf:datatype="&xsd;string"/>
+</rdf:Property>
+
+<rdf:Property rdf:ID="zone">
+  <rdfs:domain rdf:resource="Pays"/>
+  <rdfs:range rdf:resource="Group"/>
+</rdf:Property>
+
+</rdf:RDF>

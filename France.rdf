@@ -17,9 +17,6 @@
    <dc:hasLangue>
       <rdf:Description rdf:about="Francais"/>
    </dc:hasLangue>
-   <dc:hasEmpire>
-      <rdf:Description rdf:about="EmpireColonial"/>
-   </dc:hasEmpire>
    <dc:memberOf>
       <rdf:Description rdf:about="OTAN"/>
    </dc:memberOf>
@@ -53,26 +50,12 @@
          <dc:Name rdf:datatype="&xsd;string">Marseille</dc:Name>
       </rdf:Description></dc:hasVille>
    <dc:hasVille>
-      <rdf:Description rdf:about="Nabonne">
+      <rdf:Description rdf:about="Narbonne">
          <rdf:type rdf:resource="Ville"/>
          <dc:Name rdf:datatype="&xsd;string">Narbonne</dc:Name>
       </rdf:Description>
    </dc:hasVille>
-   <dc:occupation>
-      <rdf:Description rdf:about="occupationCelte"/>
-   </dc:occupation>
 </dc:Pays>
-
-<rdf:Description rdf:about="occupationCelte">
-      <dc:startsiecle rdf:datatype="&xsd;string">-Ve</dc:startsiecle>
-      <dc:endsiecle rdf:datatype="&xsd;string">-IIIe</dc:endsiecle>
-</rdf:Description>
-
-<rdf:Description rdf:about="EmpireColonial">
-   <dc:Name rdf:datatype="&xsd;string">Empire Colonial</dc:Name>
-   <dc:startsiecle rdf:datatype="&xsd;string">XVII</dc:startsiecle>
-   <dc:endsiecle rdf:datatype="&xsd;string">XX</dc:endsiecle>
-</rdf:Description>
 
 <rdf:Description rdf:nodeID="classementEco">
    <dc:domaine>
@@ -103,9 +86,6 @@
    <dc:continent>
       <rdf:Description rdf:about="Europe"/>
    </dc:continent>
-   <dc:hasEmpire>
-      <rdf:Description rdf:about="Empire"/>
-   </dc:hasEmpire>
    <dc:memberOf>
       <rdf:Description rdf:about="OTAN"/>
    </dc:memberOf>
@@ -144,12 +124,6 @@
       </rdf:Description>
    </dc:hasVille>
 </dc:Pays>
-
-<rdf:Description rdf:about="Empire">
-   <dc:Name rdf:datatype="&xsd;string">Saint-Empire romain germanique</dc:Name>
-      <dc:startsiecle rdf:datatype="&xsd;string">-VIe</dc:startsiecle>
-      <dc:endsiecle rdf:datatype="&xsd;string">-Ie</dc:endsiecle>
-</rdf:Description>
 
 <rdf:Description rdf:nodeID="classementEcoAll">
    <dc:domaine>
