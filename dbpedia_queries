@@ -17,7 +17,9 @@ OPTIONAL {?x dbpedia-owl:largestCity ?plusGrandeVille }
 }
 
 
-
+**************************************************
+/*********REQUETES VERS NOTRE DBPEDIA*************/
+**************************************************
 
 //Quelle est la capitale de <PAYS>
 prefix a: <http://dbpedia.org/resource/>
@@ -103,3 +105,26 @@ FILTER(langMatches(lang(?hymne), "en") )
 }
 
 
+**************************************************
+/**********REQUETES VERS NOTRE RDF****************/
+**************************************************
+
+//LANGUE
+select ?pays, ?lang where {
+	?pays dc:hasLangue ?lang.
+}
+
+//SURFACE FORET
+select ?pays, ?surface where {
+	?pays dc:foret ?surface.
+}
+
+//GROUPE / MEMBER OF
+select ?pays, ?group where {
+	?pays dc:memberOf ?group.
+}
+
+//VILLES
+select ?pays, ?ville where {
+	?pays dc:hasVille ?ville.
+}
