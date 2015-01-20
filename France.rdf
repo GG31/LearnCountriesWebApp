@@ -14,6 +14,9 @@
    <dc:continent>
       <rdf:Description rdf:about="Europe"/>
    </dc:continent>
+   <dc:hasLangue>
+      <rdf:Description rdf:about="Francais"/>
+   </dc:hasLangue>
    <dc:hasEmpire>
       <rdf:Description rdf:about="EmpireColonial"/>
    </dc:hasEmpire>
@@ -38,9 +41,23 @@
 
    <dc:foret rdf:datatype="&xsd;string">28%</dc:foret>
 
-   <dc:ville rdf:datatype="&xsd;string">Toulouse</dc:ville>
-   <dc:ville rdf:datatype="&xsd;string">Marseille</dc:ville>
-   <dc:ville rdf:datatype="&xsd;string">Narbonne</dc:ville>
+   <dc:hasVille>
+      <rdf:Description rdf:about="Toulouse">
+         <rdf:type rdf:resource="Ville"/>
+         <dc:Name rdf:datatype="&xsd;string">Toulouse</dc:Name>
+      </rdf:Description>
+   </dc:hasVille>
+   <dc:hasVille>
+      <rdf:Description rdf:about="Marseille">
+         <rdf:type rdf:resource="Ville"/>
+         <dc:Name rdf:datatype="&xsd;string">Marseille</dc:Name>
+      </rdf:Description></dc:hasVille>
+   <dc:hasVille>
+      <rdf:Description rdf:about="Nabonne">
+         <rdf:type rdf:resource="Ville"/>
+         <dc:Name rdf:datatype="&xsd;string">Narbonne</dc:Name>
+      </rdf:Description>
+   </dc:hasVille>
    <dc:occupation>
       <rdf:Description rdf:about="occupationCelte"/>
    </dc:occupation>
@@ -79,6 +96,9 @@
 
 
 <dc:Pays rdf:ID="Allemagne">
+   <dc:hasLangue>
+      <rdf:Description rdf:about="Allemand"/>
+   </dc:hasLangue>
    <dc:originName rdf:datatype="&xsd;string">Thiuda</dc:originName>
    <dc:continent>
       <rdf:Description rdf:about="Europe"/>
@@ -105,9 +125,24 @@
    <dc:classement rdf:nodeID="classementEcoMondeAll"/>
    <dc:climat rdf:datatype="&xsd;string">tempéré</dc:climat>
    <dc:foret rdf:datatype="&xsd;string">31%</dc:foret>
-   <dc:ville rdf:datatype="&xsd;string">Munich</dc:ville>
-   <dc:ville rdf:datatype="&xsd;string">Hambourg</dc:ville>
-   <dc:ville rdf:datatype="&xsd;string">Cologne</dc:ville>
+   <dc:hasVille>
+      <rdf:Description rdf:about="Munich">
+         <rdf:type rdf:resource="Ville"/>
+         <dc:Name rdf:datatype="&xsd;string">Munich</dc:Name>
+      </rdf:Description>
+   </dc:hasVille>
+   <dc:hasVille>
+      <rdf:Description rdf:about="Hambourg">
+         <rdf:type rdf:resource="Ville"/>
+         <dc:Name rdf:datatype="&xsd;string">Hambourg</dc:Name>
+      </rdf:Description>
+   </dc:hasVille>
+   <dc:hasVille>
+      <rdf:Description rdf:about="Cologne">
+         <rdf:type rdf:resource="Ville"/>
+         <dc:Name rdf:datatype="&xsd;string">Cologne</dc:Name>
+      </rdf:Description>
+   </dc:hasVille>
 </dc:Pays>
 
 <rdf:Description rdf:about="Empire">
@@ -140,6 +175,9 @@
    <dc:continent>
       <rdf:Description rdf:about="Europe"/>
    </dc:continent>
+   <dc:hasLangue>
+      <rdf:Description rdf:about="Espagnol"/>
+   </dc:hasLangue>
    <dc:memberOf>
       <rdf:Description rdf:about="UnionLatine"/>
    </dc:memberOf>
@@ -161,9 +199,24 @@
    <dc:climat rdf:datatype="&xsd;string">méditerranéen</dc:climat>
    <dc:climat rdf:datatype="&xsd;string">océanique</dc:climat>
    <dc:foret rdf:datatype="&xsd;string">36%</dc:foret>
-   <dc:ville rdf:datatype="&xsd;string">Cadiz</dc:ville>
-   <dc:ville rdf:datatype="&xsd;string">Barcelone</dc:ville>
-   <dc:ville rdf:datatype="&xsd;string">Seville</dc:ville>
+   <dc:hasVille>
+      <rdf:Description rdf:about="Cadiz">
+         <rdf:type rdf:resource="Ville"/>
+         <dc:Name rdf:datatype="&xsd;string">Cadiz</dc:Name>
+      </rdf:Description>
+   </dc:hasVille>
+   <dc:hasVille>
+      <rdf:Description rdf:about="Barcelone">
+         <rdf:type rdf:resource="Ville"/>
+         <dc:Name rdf:datatype="&xsd;string">Barcelone</dc:Name>
+      </rdf:Description>
+   </dc:hasVille>
+   <dc:hasVille>
+      <rdf:Description rdf:about="Seville">
+         <rdf:type rdf:resource="Ville"/>
+         <dc:Name rdf:datatype="&xsd;string">Seville</dc:Name>
+      </rdf:Description>
+   </dc:hasVille>
 </dc:Pays>
 
 <rdf:Description rdf:nodeID="classementEcoEs">
@@ -211,6 +264,17 @@
    <rdf:type rdf:resource="Continent"/>
    <dc:hasName rdf:datatype="&xsd;string">Europe</dc:hasName>
 </rdf:Description>
-
+<rdf:Description rdf:about="Allemand">
+   <rdf:type rdf:resource="Langue"/>
+   <dc:hasName rdf:datatype="&xsd;string">Allemand</dc:hasName>
+</rdf:Description>
+<rdf:Description rdf:about="Francais">
+   <rdf:type rdf:resource="Langue"/>
+   <dc:hasName rdf:datatype="&xsd;string">Francais</dc:hasName>
+</rdf:Description>
+<rdf:Description rdf:about="Espagnol">
+   <rdf:type rdf:resource="Langue"/>
+   <dc:hasName rdf:datatype="&xsd;string">Espagnol</dc:hasName>
+</rdf:Description>
 
 </rdf:RDF>
