@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+<!ENTITY rul "http://ns.inria.fr/edelweiss/2011/rule#">
+]>
+<rdf:RDF xmlns:rdfs="&rdfs;" xmlns:rdf="&rdf;"
+xmlns="&rul;">
+
+
+<!-- 1.creation de hasMoney -->
+<rule>
+<body>
+<![CDATA[
+
+prefix dc: <http://www.LearnCountriesWebApp.fr/>
+
+construct {
+	?x dc:hasMoney "Euro"
+}
+where {
+	?x dc:memberOf <file:///home/bulte/Bureau/Cours/S2/WebSem/Projet/LearnCountriesWebApp/Zone_Euro>
+}
+]]>
+</body>
+</rule>
+
+
+<!-- 2.creation de hasContinent -->
+<rule>
+<body>
+<![CDATA[
+
+prefix dc: <http://www.LearnCountriesWebApp.fr/>
+
+construct {
+	?x dc:hasContinent "Europe"
+}
+where {
+	?x dc:memberOf <file:///home/bulte/Bureau/Cours/S2/WebSem/Projet/LearnCountriesWebApp/Zone_Euro>
+}
+]]>
+</body>
+</rule>
+
+<!-- 3.si la langue du pays est <LANG> alors la langue de toutes les villes du pays est aussi<LANG> -->
+<rule>
+<body>
+<![CDATA[
+
+prefix dc: <http://www.LearnCountriesWebApp.fr/>
+
+construct {
+	?ville dc:hasLangue ?lang
+}
+where {
+	?pays dc:hasVille ?ville.
+	?pays dc:hasLangue ?lang
+}
+]]>
+</body>
+</rule>
+
+<!-- 4.Une ville a un pays -->
+<rule>
+<body>
+<![CDATA[
+
+prefix dc: <http://www.LearnCountriesWebApp.fr/>
+
+construct {
+	?ville dc:hasCountry ?pays
+}
+where {
+	?pays dc:hasVille ?ville.
+}
+]]>
+</body>
+</rule>
+
+<!-- 5.Compte le nombre de villes -->
+<rule>
+<body>
+<![CDATA[
+
+prefix dc: <http://www.LearnCountriesWebApp.fr/>
+
+CONSTRUCT 
+{  
+   ?pays dc:hasNbVille ?count
+} 
+WHERE
+{  
+
+SELECT (COUNT(?ville) AS ?count) ?pays  where { ?pays dc:hasVille ?ville} group by ?pays
+
+}
+]]>
+</body>
+</rule>
+
+<!-- 6.est-ce que le pays est grand ?-->
+<rule>
+<body>
+<![CDATA[
+
+prefix dc: <http://www.LearnCountriesWebApp.fr/>
+
+construct {
+	?pays dc:isABigCountry "yes"
+}
+where {
+	?pays dc:hasNbVille ?nb.
+	FILTER(?nb >=5)
+}
+]]>
+</body>
+</rule>
+
+<!-- 6.est-ce que le pays est petit ?-->
+<rule>
+<body>
+<![CDATA[
+
+prefix dc: <http://www.LearnCountriesWebApp.fr/>
+
+construct {
+	?pays dc:isABigCountry "no"
+}
+where {
+	?pays dc:hasNbVille ?nb.
+	FILTER(?nb <5)
+}
+]]>
+</body>
+</rule>
+
+</rdf:RDF>

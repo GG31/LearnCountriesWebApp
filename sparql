@@ -1,0 +1,111 @@
+/**************************************************/
+/*************REQUETES VERS DBPEDIA****************/
+/**************************************************/
+
+//Quelle est la capitale de <PAYS>
+prefix a: <http://dbpedia.org/resource/>
+prefix o: <http://dbpedia.org/ontology/>
+
+select ?pays, ?capitale where {
+?pays a o:Country.
+?pays dbpprop:capital ?p.
+?p dbpprop:name ?capitale.
+FILTER(langMatches(lang(?capitale), "en") )
+}
+
+//Quelle est la langue parlée en <PAYS>
+prefix a: <http://dbpedia.org/resource/>
+prefix o: <http://dbpedia.org/ontology/>
+
+select ?pays, ?langage where {
+?pays a o:Country.
+?pays dbpedia-owl:language ?p.
+?p dbpprop:nativename ?langage.
+FILTER(langMatches(lang(?langage), "en") || langMatches(lang(?langage), "fr"))
+}
+
+//Qui est le président en <PAYS>
+prefix a: <http://dbpedia.org/resource/>
+prefix o: <http://dbpedia.org/ontology/>
+
+select ?pays, ?presidentName where {
+?pays a o:Country.
+?pays dbpedia-owl:leader ?p.
+?p dbpprop:name ?presidentName
+FILTER(langMatches(lang(?presidentName), "en"))
+}
+
+//Quelle est la surface de <PAYS>?
+prefix a: <http://dbpedia.org/resource/>
+prefix o: <http://dbpedia.org/ontology/>
+
+select ?pays, ?surface where {
+?pays a o:Country.
+?pays dbpprop:areaKm ?surface.
+
+}
+
+//Quel est le rang de <PAYS> en terme de surface (KM2)
+prefix a: <http://dbpedia.org/resource/>
+prefix o: <http://dbpedia.org/ontology/>
+
+select ?pays, ?rangSurface where {
+?pays a o:Country.
+?pays dbpprop:areaRank ?rangSurface.
+
+}
+
+
+//DEVISES
+prefix o: <http://dbpedia.org/ontology/>
+
+select ?pays, ?devise where {
+?pays a o:Country.
+?pays dbpedia-owl:motto ?devise.
+}
+
+//HISTOIRE
+prefix o: <http://dbpedia.org/ontology/>
+
+select ?pays, ?histoire where {
+?pays a o:Country.
+?pays dbpedia-owl:abstract ?histoire.
+
+FILTER(langMatches(lang(?histoire), "fr"))
+}
+
+//HYMNE
+prefix a: <http://dbpedia.org/resource/>
+prefix o: <http://dbpedia.org/ontology/>
+
+select ?pays, ?hymne where {
+?pays a o:Country.
+?pays dbpedia-owl:anthem ?p.
+?p dbpprop:title ?hymne.
+FILTER(langMatches(lang(?hymne), "en") )
+}
+
+
+/**************************************************/
+/***********REQUETES VERS NOTRE RDF****************/
+/**************************************************/
+
+//LANGUE
+select ?pays, ?lang where {
+	?pays dc:hasLangue ?lang.
+}
+
+//SURFACE FORET
+select ?pays, ?surface where {
+	?pays dc:foret ?surface.
+}
+
+//GROUPE / MEMBER OF
+select ?pays, ?group where {
+	?pays dc:memberOf ?group.
+}
+
+//VILLES
+select ?pays, ?ville where {
+	?pays dc:hasVille ?ville.
+}
