@@ -99,7 +99,7 @@ SELECT (COUNT(?ville) AS ?count) ?pays  where { ?pays dc:hasVille ?ville} group 
 </body>
 </rule>
 
-<!-- 6.est-ce que le pays est grand ?-->
+<!-- 6.est-ce que le pays est grand  !!!!! bool   ?-->
 <rule>
 <body>
 <![CDATA[

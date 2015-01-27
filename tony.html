@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="jquery-1.11.2.min.js"></script>
+</head>
+<body>
+
+<ul id="pays"></ul>
+<table id="new-projects" style="display:none;"></table>
+<button onclick="retrieveAnswers('select ?x where { service <http://dbpedia.org/sparql> {?x a <http://dbpedia.org/ontology/Country> }}')">get all countries</button>
+ 
+<script>
+function retrieveAnswers(givenQuery){
+	givenQuery = escape(givenQuery);
+
+	givenQuery = "http://localhost:8080/sparql/template?query=" + givenQuery  + " .s0, .s1";
+	$( "#new-projects" ).load(givenQuery, function(data){
+		var myList = document.getElementsByTagName("td");
+		for (var i = 1; i < myList.length; i++) {
+			var str = myList[i].innerHTML;
+			str = str.split("http://dbpedia.org/resource/");
+
+			//str = str.replace("_"," ");
+			$("#pays").append("<li>"+str+"</li>");
+		};
+	});
+}
+</script>
+ 
+</body>
+</html>
