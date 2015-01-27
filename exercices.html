@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8" />
+      <title>Learn Countries</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<body>
+<div>Bienvenue à la partie exercice</div>
+<a href="cours.html">Cours</a>
+<nav>
+   <ul>
+      <li id="Quizz">Quizz</li>
+      <li id="QCM">QCM</li>
+      <li id="Ordonnancement">Ordonnancement</li>
+   </ul>
+</nav>
+<section id="sectionQuizz">
+   Question :<br>
+   <span id="questionQCM"></span><br>
+   <input type="text" id="reponse"/>
+</section>
+<section id="sectionQCM">
+   Section QCM<br>
+   Question :<br>
+   <span id="questionQCM"></span><br>
+   <fieldset>
+   <input type="radio" name="rep"/><span id="reponse1"></span><br>
+   <input type="radio" name="rep"/><span id="reponse2"></span><br>
+   <input type="radio" name="rep"/><span id="reponse3"></span><br>
+   </fieldset>
+   
+</section>
+<section id="sectionOrder">
+   Section order
+</section>
+<button id="corriger">Corriger</button>
+<span id="result">plop</span><br>
+<button id="next">Next</button>
+<script>
+   var type = "Quizz"
+   var reponse = ""
+   $('#Quizz').click(function() {
+      $('#sectionQuizz').show();
+      $('#sectionQCM').hide();
+      $('#sectionOrder').hide();
+      type = "Quizz"
+      eraseQuestion()
+      generateQuestion()
+   });
+   $('#next').click(function() {
+      eraseQuestion()
+      if (type == "Quizz") {
+         generateQuestion
+      } else if (type == "QCM") {
+         generateQCM()
+      }
+      reponse = "yo"
+   });
+   $('#corriger').click(function() {
+      var rep = ""
+      if (type == "Quizz") {
+         rep = $('#reponse').val()
+      } else if (type == "QCM") {
+         rep = $('input[name*="rep"]:checked').next().text()
+      }
+      corriger(rep)
+   });
+   corriger = function(answerGiven) {
+      if (answerGiven == reponse) {
+         $('#result').text("Correct")
+      } else {
+         $('#result').text("La bonne réponse était : " + reponse)
+      }
+   }
+   generateQCM = function() {
+      //Chercher une question et 3 réponses
+      //Mettre la bonne réponse dans reponse
+      reponse = ""
+      $('#reponse1').text("rep1")
+      $('#reponse2').text("rep2")
+      $('#reponse3').text("rep3")
+   }
+   generateQuestion = function() {
+      //Choisir une question
+      //La mettre dans $('#question').text(question)
+      //Obtenir la réponse
+   }
+   $('#QCM').click(function() {
+      $('#sectionQuizz').hide();
+      $('#sectionQCM').show();
+      $('#sectionOrder').hide();
+      type = "QCM"
+      generateQCM()
+   });
+   
+   $('#Ordonnancement').click(function() {
+      $('#sectionQuizz').hide();
+      $('#sectionQCM').hide();
+      $('#sectionOrder').show();
+   });
+   
+   eraseQuestion = function() {
+      $('#reponse').val("")
+      $('#result').text("")
+      $('#question').text("")
+      $('fieldset span').text("")
+      $('#resultQCM').text("")
+      $('#questionQCM').text("")
+   }
+</script>
+</body>
+</html>
