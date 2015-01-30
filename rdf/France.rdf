@@ -9,6 +9,7 @@
 	xmlns:base="http://www.LearnCountriesWebApp.fr/" >
 
 <dc:Pays rdf:ID="France">
+   <dc:Name rdf:datatype="&xsd;string">France</dc:Name>
    <rdf:type rdf:resource="Pays"/>
    <dc:originName rdf:datatype="&xsd;string">franc</dc:originName>
    <dc:continent>
@@ -79,6 +80,7 @@
 
 
 <dc:Pays rdf:ID="Allemagne">
+   <dc:Name rdf:datatype="&xsd;string">Allemagne</dc:Name>
    <dc:hasLangue>
       <rdf:Description rdf:about="Allemand"/>
    </dc:hasLangue>
@@ -146,6 +148,7 @@
 </rdf:Description>
 
 <dc:Pays rdf:ID="Espagne">
+   <dc:Name rdf:datatype="&xsd;string">Espagne</dc:Name>
    <dc:continent>
       <rdf:Description rdf:about="Europe"/>
    </dc:continent>

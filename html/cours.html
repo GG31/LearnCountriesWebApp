@@ -65,10 +65,14 @@ function rowTreatment(row) {
 <script>
    $('#Allemagne').click(function() {
       clean();
-      //console.log("allemagne");
-      //retrieveAnswers('select ?x where { service <http://dbpedia.org/sparql> {?x a <http://dbpedia.org/ontology/Country> }}')
-      retrieveAnswers('describe ?x where {'+
-         '?x rdf:type <http://www.LearnCountriesWebApp.fr/Allemagne>'+
+      retrieveAnswers(
+      'select ?x ?p ?y where {'+
+         'service <http://localhost:8080/sparql/template> '+ //J'ai un peu tout essayé, mettre service de qqch ou sans service, la requête passe directement sur corese, mais pas à travers la page web même avec le -load rdf/France.rdf
+        '{'+
+            '?x <http://www.LearnCountriesWebApp.fr/Name> ?name.'+
+            '?x ?p ?y.'+
+            'FILTER(?name = xsd:string("Allemagne"))'+
+         '}'+
       '}')
    });
    $('#Espagne').click(function() {
