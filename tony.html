@@ -19,9 +19,10 @@ function retrieveAnswers(givenQuery){
 		var myList = document.getElementsByTagName("td");
 		for (var i = 1; i < myList.length; i++) {
 			var str = myList[i].innerHTML;
+			
 			str = str.split("http://dbpedia.org/resource/");
 
-			//str = str.replace("_"," ");
+			str = str[1].replace(/_/g,' ');
 			$("#pays").append("<li>"+str+"</li>");
 		};
 	});
