@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8" />
+      <title>Learn Countries</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+
+      <script> 
+function retrieveAnswers(givenQuery){
+   givenQuery = escape(givenQuery);
+   givenQuery = "http://localhost:8080/sparql/template?query=" + givenQuery  + " .s0, .s1";
+         console.log("query");
+   $( "#pays" ).load(givenQuery, function(data){
+      //var myList = $('tbody')
+            console.log("load");
+      $('tr').each(function() {
+         rowTreatment($(this))
+      });
+      //var myList = document.getElementsByTagName("td");
+      /*for (var i = 1; i < myList.length; i++) {
+         var str = myList[i].innerHTML;
+         console.log(str);
+         //str = str.split("http://dbpedia.org/resource/");
+         //str = str[1].replace(/_/g,' ');
+         $("#section").append("<div>"+str+"</div>");
+      };*/
+   });
+}
+
+function rowTreatment(row) {
+   console.log('treatment ' + row.html());
+   var line = "";
+   row.children('td').each(function() {
+      line = line + $(this).text() + " ";
+      /*var pattern = /(.+)@?/ig;
+      var matches = $(this).text().match(pattern);
+      if (matches)
+      console.log("match " + matches);*/
+   });
+   $("#section").append("<div>"+line+"</div>");
+}
+</script>
+   </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<body>
+<div>Bienvenue à la partie cours</div>
+<a href="exercices.html">Exercice</a>
+<nav>
+   <ul>
+      <li id="Allemagne">Allemagne</li>
+      <li id="Espagne">Espagne</li>
+      <li id="France">France</li>
+      <li id="Capitale">Capitale</li>
+      <li id="Devise">Devise</li>
+      <li id="Langue">Langue</li>
+      <li id="President">Président</li>
+      <li id="Surface">Surface</li>
+   </ul>
+</nav>
+<div id="pays" style="display:none;"></div>
+<section id="section">
+   Info
+</section>
+
+<script>
+   $('#Allemagne').click(function() {
+      clean();
+      //console.log("allemagne");
+      //retrieveAnswers('select ?x where { service <http://dbpedia.org/sparql> {?x a <http://dbpedia.org/ontology/Country> }}')
+      retrieveAnswers('describe ?x where {'+
+         '?x rdf:type <http://www.LearnCountriesWebApp.fr/Allemagne>'+
+      '}')
+   });
+   $('#Espagne').click(function() {
+      alert( "Handler for Espagne called." );
+   });
+   $('#France').click(function() {
+      alert( "Handler for France called." );
+   });
+   
+   $('#Capitale').click(function() {
+      clean();
+      retrieveAnswers('select ?anamePays ?capitalName where {'+
+        'service <http://dbpedia.org/sparql> '+
+        '{'+
+            '?pays a <http://dbpedia.org/ontology/Country>.'+
+            '?pays <http://dbpedia.org/ontology/longName> ?anamePays' +
+            '?pays <http://dbpedia.org/property/capital> ?capital.'+
+            '?capital <http://dbpedia.org/property/name> ?capitalName.'+
+            //'FILTER(lang(?capitalName)="en")'+
+        '}'+
+      '}')
+   });
+   $('#Devise').click(function() {
+      clean();
+      retrieveAnswers('select ?anamePays ?devise where {'+
+        'service <http://dbpedia.org/sparql> '+
+        '{'+
+            '?pays a <http://dbpedia.org/ontology/Country>.'+
+            '?pays <http://dbpedia.org/ontology/longName> ?anamePays' +
+            '?pays <http://dbpedia.org/ontology/motto> ?devise.'+
+        '}'+
+      '}')
+   });
+   $('#Langue').click(function() {
+      clean();
+      retrieveAnswers('select ?anamePays ?language where {'+
+  'service <http://dbpedia.org/sparql> '+
+  '{'+
+      '?pays a <http://dbpedia.org/ontology/Country>.'+
+      '?pays <http://dbpedia.org/ontology/longName> ?anamePays' +
+      '?pays <http://dbpedia.org/ontology/language> ?p.'+
+      '?p <http://dbpedia.org/property/nativename> ?language. '+
+      'FILTER(lang(?language)="en" || lang(?language) = "fr")'+
+  '}'+
+'}')
+   });
+   
+   $('#President').click(function() {
+      clean();
+      retrieveAnswers('select ?anamePays ?leader where {'+
+        'service <http://dbpedia.org/sparql> '+
+        '{'+
+            '?pays a <http://dbpedia.org/ontology/Country>.'+
+            '?pays <http://dbpedia.org/ontology/longName> ?anamePays.' +
+            '?pays <http://dbpedia.org/ontology/leader> ?leader.'+
+            //'FILTER(lang(?presidentName)="en")'+ Si on filtre, y a plus de résultat
+        '}'+
+      '}')
+   });
+   
+   $('#Surface').click(function() {
+      clean();
+      retrieveAnswers('select ?anamePays ?surface where {'+
+  'service <http://dbpedia.org/sparql> '+
+  '{'+
+      '?pays a <http://dbpedia.org/ontology/Country>.'+
+      '?pays <http://dbpedia.org/ontology/longName> ?anamePays' +
+      '?pays <http://dbpedia.org/property/areaKm> ?surface.'+
+  '}'+
+'}')
+   });
+   
+   clean = function() {
+      $("#section *").remove();
+   }
+</script>
+</body>
+</html>
