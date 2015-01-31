@@ -16,7 +16,7 @@ xmlns="&rul;">
 prefix dc: <http://www.LearnCountriesWebApp.fr/>
 
 construct {
-	?x dc:hasMoney "Euro"
+	?x dc:hasMoney <http://dbpedia.org/page/Euro>
 }
 where {
 	?x dc:memberOf <file:///home/bulte/Bureau/Cours/S2/WebSem/Projet/LearnCountriesWebApp/Zone_Euro>
@@ -34,7 +34,7 @@ where {
 prefix dc: <http://www.LearnCountriesWebApp.fr/>
 
 construct {
-	?x dc:hasContinent "Europe"
+	?x dc:hasContinent <http://dbpedia.org/page/Europe>
 }
 where {
 	?x dc:memberOf <file:///home/bulte/Bureau/Cours/S2/WebSem/Projet/LearnCountriesWebApp/Zone_Euro>
@@ -107,7 +107,7 @@ SELECT (COUNT(?ville) AS ?count) ?pays  where { ?pays dc:hasVille ?ville} group 
 prefix dc: <http://www.LearnCountriesWebApp.fr/>
 
 construct {
-	?pays dc:isABigCountry "yes"
+	?pays dc:isABigCountry "true"^^xsd:boolean
 }
 where {
 	?pays dc:hasNbVille ?nb.
@@ -125,7 +125,7 @@ where {
 prefix dc: <http://www.LearnCountriesWebApp.fr/>
 
 construct {
-	?pays dc:isABigCountry "no"
+	?pays dc:isABigCountry "false"^^xsd:boolean
 }
 where {
 	?pays dc:hasNbVille ?nb.

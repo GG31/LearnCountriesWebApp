@@ -16,11 +16,15 @@
       <li id="Ordonnancement">Ordonnancement</li>
    </ul>
 </nav>
+
+<!-- QUIZZ -->
 <section id="sectionQuizz">
    Question :<br>
-   <span id="questionQCM"></span><br>
+   <span id="questionQuizz"></span><br>
    <input type="text" id="reponse"/>
 </section>
+
+<!-- QCM -->
 <section id="sectionQCM">
    Section QCM<br>
    Question :<br>
@@ -30,17 +34,47 @@
    <input type="radio" name="rep"/><span id="reponse2"></span><br>
    <input type="radio" name="rep"/><span id="reponse3"></span><br>
    </fieldset>
-   
 </section>
+
+<!-- ORDONNANCEMENT -->
 <section id="sectionOrder">
    Section order
 </section>
+
 <button id="corriger">Corriger</button>
 <span id="result">plop</span><br>
 <button id="next">Next</button>
+
 <script>
-   var type = "Quizz"
-   var reponse = ""
+   var type = "Quizz";
+   var reponse = "";
+
+   //Contient les questions et les requetes sparql associées
+   //Voir si on peut faire autrement...
+   var questionsQuizz = new Array();
+   questionsQuizz[0] = new Array();
+   questionsQuizz[0]["question"] = "En <param>, Quelle est la langue ?";
+   questionsQuizz[0]["sparql"] = "select ?pays ?langage where {" +
+                                    "service <http://dbpedia.org/sparql>{"+
+                                       "?pays a <http://dbpedia.org/ontology/Country>."+
+                                       "?pays dbpedia-owl:language ?p."+
+                                       "?p rdfs:label ?langage."+
+                                       "FILTER(langMatches(lang(?langage), 'en') || langMatches(lang(?langage), 'fr'))"+
+                                 "}}"+
+                                 "ORDER BY ?pays OFFSET <randomNb> LIMIT 1";
+
+   questionsQuizz[1] = new Array();
+   questionsQuizz[1]["question"] = "En <param>, Quelle est la capitale ?";
+   questionsQuizz[1]["sparql"] = "select ?pays ?capitale where {"+
+                                    "service <http://dbpedia.org/sparql>{"+
+                                       "?pays a <http://dbpedia.org/ontology/Country>."+
+                                       "?pays dbpprop:capital ?p."+
+                                       "?p dbpprop:name ?capitale."+
+                                       "FILTER(langMatches(lang(?capitale), 'en') )"+
+                                 "}}"+
+                                 "ORDER BY ?pays OFFSET <randomNb> LIMIT 1";
+
+
    $('#Quizz').click(function() {
       $('#sectionQuizz').show();
       $('#sectionQCM').hide();
@@ -51,8 +85,9 @@
    });
    $('#next').click(function() {
       eraseQuestion()
-      if (type == "Quizz") {
-         generateQuestion
+      if (type == "Quizz") {      
+         eraseQuestion()
+         generateQuestion()
       } else if (type == "QCM") {
          generateQCM()
       }
@@ -82,10 +117,42 @@
       $('#reponse2').text("rep2")
       $('#reponse3').text("rep3")
    }
+   //Génère une question a propos d'un pays choisi aléatoirement
+   /*
+      TODO
+         -changer aléatoirement de type de question (langue, capitale,...)  --> questionsQuizz[X]
+   */
    generateQuestion = function() {
-      //Choisir une question
-      //La mettre dans $('#question').text(question)
-      //Obtenir la réponse
+
+      var tab;
+      var randomNb = Math.floor((Math.random() * 1000) + 1);
+      var req = questionsQuizz[0]["sparql"].replace("<randomNb>", randomNb);
+      givenQuery = escape(req);
+      givenQuery = "http://localhost:8080/sparql/template?query=" + givenQuery  + " .s0, .s1";
+      console.log("query");
+      $( "#pays" ).load(givenQuery, function(data){
+         console.log("load");
+         $('tr').each(function() {
+               var row = $(this);
+               console.log('treatment ' + row.html());
+               var i = 0;
+               var pays = "";
+               var res = "";
+               row.children('td').each(function() {
+                  if(i == 0){
+                     res = $(this).html();
+                  }else{
+                     pays = $(this).html();
+                  }
+                  i++;
+               });
+               //La mettre dans $('#question').text(question)
+               var question = questionsQuizz[0]["question"].replace("<param>", pays);
+               $('#questionQuizz').text(question);
+               //Obtenir la réponse
+               reponse = res;
+         });
+      });
    }
    $('#QCM').click(function() {
       $('#sectionQuizz').hide();
@@ -108,7 +175,9 @@
       $('fieldset span').text("")
       $('#resultQCM').text("")
       $('#questionQCM').text("")
+      $('#questionQuizz').text("")
    }
 </script>
+<div id="pays" style="display:none;"></div>
 </body>
 </html>
