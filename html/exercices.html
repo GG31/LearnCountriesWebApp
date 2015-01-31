@@ -112,10 +112,11 @@
    generateQCM = function() {
       //Chercher une question et 3 réponses
       //Mettre la bonne réponse dans reponse
-      reponse = ""
+      /*reponse = ""
       $('#reponse1').text("rep1")
       $('#reponse2').text("rep2")
-      $('#reponse3').text("rep3")
+      $('#reponse3').text("rep3")*/
+      generateQuestion()
    }
    //Génère une question a propos d'un pays choisi aléatoirement
    /*
@@ -151,9 +152,18 @@
                $('#questionQuizz').text(question);
                //Obtenir la réponse
                reponse = res;
+               if(type == "QCM") {
+                  $('#questionQCM').text(question);
+                  var nb = Math.floor((Math.random() * 3) + 1);
+                  $('#reponse1').text("rep1")
+                  $('#reponse2').text("rep2")
+                  $('#reponse3').text("rep3")
+                  $('#reponse'+nb).text(reponse);
+               }
          });
       });
    }
+   
    $('#QCM').click(function() {
       $('#sectionQuizz').hide();
       $('#sectionQCM').show();
