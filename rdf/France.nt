@@ -7,11 +7,11 @@
 <#Allemagne> a dc:Pays ;
     dc:Name "Allemagne"^^xsd:string ;
     dc:classement [ dc:domaine <Economie> ;
-            dc:rang 4 ;
-            dc:zone <Monde> ],
-        [ dc:domaine <Economie> ;
             dc:rang 1 ;
-            dc:zone <Zone_Euro> ] ;
+            dc:zone <Zone_Euro> ],
+        [ dc:domaine <Economie> ;
+            dc:rang 4 ;
+            dc:zone <Monde> ] ;
     dc:climat "tempéré"^^xsd:string ;
     dc:continent <Europe> ;
     dc:foret "31%"^^xsd:string ;
@@ -29,11 +29,11 @@
 <#Espagne> a dc:Pays ;
     dc:Name "Espagne"^^xsd:string ;
     dc:classement [ dc:domaine <Economie> ;
-            dc:rang 6 ;
-            dc:zone <Zone_Euro> ],
-        [ dc:domaine <Economie> ;
             dc:rang 9 ;
-            dc:zone <Monde> ] ;
+            dc:zone <Monde> ],
+        [ dc:domaine <Economie> ;
+            dc:rang 6 ;
+            dc:zone <Zone_Euro> ] ;
     dc:climat "méditerranéen"^^xsd:string,
         "océanique"^^xsd:string,
         "semi-aride"^^xsd:string ;
@@ -73,9 +73,19 @@
     dc:originName "franc"^^xsd:string .
 
 <QuestionsGroup> a <Group> ;
-    dc:question "Capitale ?"^^xsd:string,
-        "Group ?"^^xsd:string,
-        "Langue ?"^^xsd:string,
+    dc:hasQuestion [ a dc:question ;
+            dc:param "surface"^^xsd:string ;
+            dc:string "Quelle est la surface de %param% ? (en km2)"^^xsd:string ],
+        [ a dc:question ;
+            dc:param "capitale"^^xsd:string ;
+            dc:string "En %param%, quelle est la capitale ?"^^xsd:string ],
+        [ a dc:question ;
+            dc:param "president"^^xsd:string ;
+            dc:string "En %param%, qui est le président ?"^^xsd:string ],
+        [ a dc:question ;
+            dc:param "langue"^^xsd:string ;
+            dc:string "En %param%, quelle est la langue ?"^^xsd:string ] ;
+    dc:question "Group ?"^^xsd:string,
         "Surface de forêt ?"^^xsd:string,
         "Ville ?"^^xsd:string .
 
@@ -132,5 +142,3 @@
 
 <Zone_Euro> a <Group> ;
     dc:hasName "Europe"^^xsd:string .
-
-

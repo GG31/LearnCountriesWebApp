@@ -258,36 +258,44 @@
    <rdf:type rdf:resource="Group"/>
    <dc:hasQuestion>
       <dc:question >
-         <dc:string rdf:datatype="&xsd;string">En <param>, quelle est la langue ?</dc:string>
+         <dc:string rdf:datatype="&xsd;string">En %param%, quelle est la langue ?</dc:string>
          <dc:param rdf:datatype="&xsd;string">langue</dc:param>
       </dc:question>
    </dc:hasQuestion>
 
    <dc:hasQuestion>
       <dc:question >
-         <dc:string rdf:datatype="&xsd;string">En <param>, quelle est la capitale ?</dc:string>
+         <dc:string rdf:datatype="&xsd;string">En %param%, quelle est la capitale ?</dc:string>
          <dc:param rdf:datatype="&xsd;string">capitale</dc:param>
       </dc:question>
    </dc:hasQuestion>
 
    <dc:hasQuestion>
       <dc:question >
-         <dc:string rdf:datatype="&xsd;string">En <param>, qui est le président ?</dc:string>
+         <dc:string rdf:datatype="&xsd;string">En %param%, qui est le président ?</dc:string>
          <dc:param rdf:datatype="&xsd;string">president</dc:param>
       </dc:question>
    </dc:hasQuestion>
 
    <dc:hasQuestion>
       <dc:question >
-         <dc:string rdf:datatype="&xsd;string">Quelle est la surface de <param> ? (en km2)</dc:string>
+         <dc:string rdf:datatype="&xsd;string">Quelle est la surface de %param% ? (en km2)</dc:string>
          <dc:param rdf:datatype="&xsd;string">surface</dc:param>
       </dc:question>
    </dc:hasQuestion>
    
+   <dc:hasQuestion>
+      <dc:question >
+         <dc:string rdf:datatype="&xsd;string">Quelle est la surface de %param% ? (en km2)</dc:string>
+         <dc:param rdf:datatype="&xsd;string">surface</dc:param>
+      </dc:question>
+   </dc:hasQuestion>
+
 
    <dc:question rdf:datatype="&xsd;string">Surface de forêt ?</dc:question>
    <dc:question rdf:datatype="&xsd;string">Group ?</dc:question>
    <dc:question rdf:datatype="&xsd;string">Ville ?</dc:question>
+
 </rdf:Description>
 
 </rdf:RDF>
