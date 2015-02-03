@@ -52,17 +52,11 @@
    //Contient les questions et les requetes sparql associées
    var questionsQuizz = new Array();
 
+
+
+
    //Langue
    questionsQuizz[0] = new Array();
-
-
- 'select ?nameCity where ' +
-        '{'+
-            '?x <http://www.LearnCountriesWebApp.fr/Name> ?name.' +
-            'FILTER(?name = xsd:string("'+countryName+'"))'+
-         '}'
-
-
    questionsQuizz[0]["question"] = "En <param>, quelle est la langue ?";
    questionsQuizz[0]["sparql"] = "select ?pays ?langage where {" +
                                     "service <http://dbpedia.org/sparql>{"+
