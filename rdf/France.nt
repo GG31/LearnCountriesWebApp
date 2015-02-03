@@ -1,0 +1,136 @@
+@prefix dc: <http://www.LearnCountriesWebApp.fr/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<#Allemagne> a dc:Pays ;
+    dc:Name "Allemagne"^^xsd:string ;
+    dc:classement [ dc:domaine <Economie> ;
+            dc:rang 4 ;
+            dc:zone <Monde> ],
+        [ dc:domaine <Economie> ;
+            dc:rang 1 ;
+            dc:zone <Zone_Euro> ] ;
+    dc:climat "tempéré"^^xsd:string ;
+    dc:continent <Europe> ;
+    dc:foret "31%"^^xsd:string ;
+    dc:hasLangue <Allemand> ;
+    dc:hasVille <Cologne>,
+        <Hambourg>,
+        <Munich> ;
+    dc:memberOf <Espace_Schengen>,
+        <G20>,
+        <G7>,
+        <OTAN>,
+        <Zone_Euro> ;
+    dc:originName "Thiuda"^^xsd:string .
+
+<#Espagne> a dc:Pays ;
+    dc:Name "Espagne"^^xsd:string ;
+    dc:classement [ dc:domaine <Economie> ;
+            dc:rang 6 ;
+            dc:zone <Zone_Euro> ],
+        [ dc:domaine <Economie> ;
+            dc:rang 9 ;
+            dc:zone <Monde> ] ;
+    dc:climat "méditerranéen"^^xsd:string,
+        "océanique"^^xsd:string,
+        "semi-aride"^^xsd:string ;
+    dc:continent <Europe> ;
+    dc:foret "36%"^^xsd:string ;
+    dc:hasLangue <Espagnol> ;
+    dc:hasVille <Barcelone>,
+        <Cadiz>,
+        <Seville> ;
+    dc:memberOf <Espace_Schengen>,
+        <G20>,
+        <OTAN>,
+        <UnionLatine>,
+        <Zone_Euro> .
+
+<#France> a <Pays>,
+        dc:Pays ;
+    dc:Name "France"^^xsd:string ;
+    dc:classement [ dc:domaine <Economie> ;
+            dc:rang 2 ;
+            dc:zone <Zone_Euro> ],
+        [ dc:domaine <Economie> ;
+            dc:rang 5 ;
+            dc:zone <Monde> ] ;
+    dc:climat "tempéré"^^xsd:string ;
+    dc:continent <Europe> ;
+    dc:foret "28%"^^xsd:string ;
+    dc:hasLangue <Francais> ;
+    dc:hasVille <Marseille>,
+        <Narbonne>,
+        <Toulouse> ;
+    dc:memberOf <Espace_Schengen>,
+        <G20>,
+        <G7>,
+        <OTAN>,
+        <Zone_Euro> ;
+    dc:originName "franc"^^xsd:string .
+
+<QuestionsGroup> a <Group> ;
+    dc:question "Capitale ?"^^xsd:string,
+        "Group ?"^^xsd:string,
+        "Langue ?"^^xsd:string,
+        "Surface de forêt ?"^^xsd:string,
+        "Ville ?"^^xsd:string .
+
+<Allemand> a <Langue> ;
+    dc:hasName "Allemand"^^xsd:string .
+
+<Barcelone> a <Ville> ;
+    dc:Name "Barcelone"^^xsd:string .
+
+<Cadiz> a <Ville> ;
+    dc:Name "Cadiz"^^xsd:string .
+
+<Cologne> a <Ville> ;
+    dc:Name "Cologne"^^xsd:string .
+
+<Espagnol> a <Langue> ;
+    dc:hasName "Espagnol"^^xsd:string .
+
+<Francais> a <Langue> ;
+    dc:hasName "Francais"^^xsd:string .
+
+<Hambourg> a <Ville> ;
+    dc:Name "Hambourg"^^xsd:string .
+
+<Marseille> a <Ville> ;
+    dc:Name "Marseille"^^xsd:string .
+
+<Munich> a <Ville> ;
+    dc:Name "Munich"^^xsd:string .
+
+<Narbonne> a <Ville> ;
+    dc:Name "Narbonne"^^xsd:string .
+
+<Seville> a <Ville> ;
+    dc:Name "Seville"^^xsd:string .
+
+<Toulouse> a <Ville> ;
+    dc:Name "Toulouse"^^xsd:string .
+
+<G7> a <Group> ;
+    dc:hasName "G7"^^xsd:string .
+
+<Espace_Schengen> a <Group> ;
+    dc:hasName "Espace Schengen"^^xsd:string .
+
+<Europe> a <Continent> ;
+    dc:hasName "Europe"^^xsd:string .
+
+<G20> a <Group> ;
+    dc:hasName "G20"^^xsd:string .
+
+<OTAN> a <Group> ;
+    dc:hasName "OTAN"^^xsd:string .
+
+<Zone_Euro> a <Group> ;
+    dc:hasName "Europe"^^xsd:string .
+
+
