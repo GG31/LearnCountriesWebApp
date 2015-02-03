@@ -45,7 +45,7 @@ function rowTreatment(row) {
 <body>
 <div>Bienvenue à la partie cours</div>
 <a href="exercices.html">Exercice</a>
-<nav>
+<nav id="nav">
    <ul>
       <li id="Allemagne">Allemagne</li>
       <li id="Espagne">Espagne</li>
@@ -58,32 +58,124 @@ function rowTreatment(row) {
    </ul>
 </nav>
 <div id="pays" style="display:none;"></div>
+<nav id="subsection">
+<ul>
+   <li id="Tout">Tout</li>
+   <li id="originName">Origine du nom</li>
+   <li id="continent">Continent</li>
+   <li id="group">Groupes</li>
+   <li id="classementEco">Classement éco</li>
+   <li id="ville">Ville</li>
+</ul></nav>
 <section id="section">
    Info
 </section>
 
 <script>
-   $('#Allemagne').click(function() {
+   $('#subsection').hide();
+   var countryName = "Allemagne";
+   $('#nav li').click(function() {
       clean();
-      retrieveAnswers(
-      'select ?x ?p ?y where {'+
-         'service <http://localhost:8080/sparql/template> '+ //J'ai un peu tout essayé, mettre service de qqch ou sans service, la requête passe directement sur corese, mais pas à travers la page web même avec le -load rdf/France.rdf
-        '{'+
-            '?x <http://www.LearnCountriesWebApp.fr/Name> ?name.'+
-            '?x ?p ?y.'+
-            'FILTER(?name = xsd:string("Allemagne"))'+
-         '}'+
-      '}')
+      $("*").css({border:'none'});
+      $(this).css({border:'solid'});
    });
+   $('#subsection li').click(function() {
+      clean();
+      $("#subsection li").css({border:'none'});
+      $(this).css({border:'solid'});
+   });
+   
+   $('#Allemagne').click(function() {
+      $('#subsection').show();
+      countryName = "Allemagne";
+   });
+   
    $('#Espagne').click(function() {
-      alert( "Handler for Espagne called." );
+      $('#subsection').show();
+      countryName = "Espagne";
    });
+   
    $('#France').click(function() {
-      alert( "Handler for France called." );
+      $('#subsection').show();
+      countryName = "France";
    });
+   
+   $('#subsection li').click(function() {
+      clean();
+      if ($(this).attr('id') == "ville") {
+         cityQuery();
+      } else if ($(this).attr('id') == "originName") {
+         originNameQuery();
+      } else if ($(this).attr('id') == "continent") {
+         continentQuery();
+      } else if ($(this).attr('id') == "group") {
+         groupQuery();
+      } else if ($(this).attr('id') == "classementEco") {
+         classementEcoQuery();
+      } else if ($(this).attr('id') == "Tout") {
+         cityQuery();
+         originNameQuery();
+         continentQuery();
+         groupQuery();
+         classementEcoQuery();
+      }
+   });
+   
+   cityQuery = function() {
+      retrieveAnswers(
+      'select ?nameCity where ' +
+        '{'+
+            '?x <http://www.LearnCountriesWebApp.fr/Name> ?name.' +
+            '?x <http://www.LearnCountriesWebApp.fr/hasVille> ?z.'+
+            '?z <http://www.LearnCountriesWebApp.fr/Name> ?nameCity.'+
+            'FILTER(?name = xsd:string("'+countryName+'"))'+
+         '}')
+   }
+   originNameQuery = function() {
+      retrieveAnswers(
+      'select ?z where ' +
+        '{'+
+            '?x <http://www.LearnCountriesWebApp.fr/Name> ?name.' +
+            '?x <http://www.LearnCountriesWebApp.fr/originName> ?z.'+
+            'FILTER(?name = xsd:string("'+countryName+'"))'+
+         '}')
+   }
+   continentQuery = function() {
+   retrieveAnswers(
+      'select ?nameContinent where ' +
+        '{'+
+            '?x <http://www.LearnCountriesWebApp.fr/Name> ?name.' +
+            '?x <http://www.LearnCountriesWebApp.fr/continent> ?z.'+
+            '?z <http://www.LearnCountriesWebApp.fr/hasName> ?nameContinent.'+
+            'FILTER(?name = xsd:string("'+countryName+'"))'+
+         '}')
+   }
+   groupQuery = function() {
+   retrieveAnswers(
+      'select ?nameGroup where ' +
+        '{'+
+            '?x <http://www.LearnCountriesWebApp.fr/Name> ?name.' +
+            '?x <http://www.LearnCountriesWebApp.fr/memberOf> ?z.'+
+            '?z <http://www.LearnCountriesWebApp.fr/hasName> ?nameGroup.'+
+            'FILTER(?name = xsd:string("'+countryName+'"))'+
+         '}')
+   }
+   classementEcoQuery = function() {
+      retrieveAnswers(
+      'select ?zoneName ?rang where ' +
+        '{'+
+            '?x <http://www.LearnCountriesWebApp.fr/Name> ?name.' +
+            '?x <http://www.LearnCountriesWebApp.fr/classement> ?z.'+
+            '?z <http://www.LearnCountriesWebApp.fr/zone> ?zone.'+
+            '?zone <http://www.LearnCountriesWebApp.fr/hasName> ?zoneName.'+
+            '?z <http://www.LearnCountriesWebApp.fr/rang> ?rang.' +
+            'FILTER(?name = xsd:string("'+countryName+'"))'+
+         '}')
+   }
    
    $('#Capitale').click(function() {
       clean();
+      $('#subsection').hide();
       retrieveAnswers('select ?anamePays ?capitalName where {'+
         'service <http://dbpedia.org/sparql> '+
         '{'+
@@ -97,6 +189,7 @@ function rowTreatment(row) {
    });
    $('#Devise').click(function() {
       clean();
+      $('#subsection').hide();
       retrieveAnswers('select ?anamePays ?devise where {'+
         'service <http://dbpedia.org/sparql> '+
         '{'+
@@ -108,6 +201,7 @@ function rowTreatment(row) {
    });
    $('#Langue').click(function() {
       clean();
+      $('#subsection').hide();
       retrieveAnswers('select ?anamePays ?language where {'+
   'service <http://dbpedia.org/sparql> '+
   '{'+
@@ -122,6 +216,7 @@ function rowTreatment(row) {
    
    $('#President').click(function() {
       clean();
+      $('#subsection').hide();
       retrieveAnswers('select ?anamePays ?leader where {'+
         'service <http://dbpedia.org/sparql> '+
         '{'+
@@ -135,6 +230,7 @@ function rowTreatment(row) {
    
    $('#Surface').click(function() {
       clean();
+      $('#subsection').hide();
       retrieveAnswers('select ?anamePays ?surface where {'+
   'service <http://dbpedia.org/sparql> '+
   '{'+
