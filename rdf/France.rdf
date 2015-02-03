@@ -256,6 +256,12 @@
 
 <rdf:Description rdf:about="QuestionsGroup">
    <rdf:type rdf:resource="Group"/>
+   <dc:hasQuestion>
+      <dc:question >
+         <dc:string rdf:datatype="&xsd;string">Langue ?</dc:string>
+         <dc:param rdf:datatype="&xsd;string">langue</dc:param>
+      </dc:question>
+   </dc:hasQuestion>
    <dc:question rdf:datatype="&xsd;string">Langue ?</dc:question>
    <dc:question rdf:datatype="&xsd;string">Capitale ?</dc:question>
    <dc:question rdf:datatype="&xsd;string">Surface de forêt ?</dc:question>
