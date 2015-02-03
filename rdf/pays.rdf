@@ -9,6 +9,7 @@
 	xmlns:base="http://www.LearnCountriesWebApp.fr/" >
 
 <dc:Pays rdf:ID="France">
+   <dc:Name rdf:datatype="&xsd;string">France</dc:Name>
    <rdf:type rdf:resource="Pays"/>
    <dc:originName rdf:datatype="&xsd;string">franc</dc:originName>
    <dc:continent>
@@ -55,18 +56,6 @@
          <dc:Name rdf:datatype="&xsd;string">Narbonne</dc:Name>
       </rdf:Description>
    </dc:hasVille>
-   <dc:hasVille>
-      <rdf:Description rdf:about="Paris">
-         <rdf:type rdf:resource="Ville"/>
-         <dc:Name rdf:datatype="&xsd;string">Paris</dc:Name>
-      </rdf:Description>
-   </dc:hasVille>
-   <dc:hasVille>
-      <rdf:Description rdf:about="Rouen">
-         <rdf:type rdf:resource="Ville"/>
-         <dc:Name rdf:datatype="&xsd;string">Rouen</dc:Name>
-      </rdf:Description>
-   </dc:hasVille>
 </dc:Pays>
 
 <rdf:Description rdf:nodeID="classementEco">
@@ -91,6 +80,7 @@
 
 
 <dc:Pays rdf:ID="Allemagne">
+   <dc:Name rdf:datatype="&xsd;string">Allemagne</dc:Name>
    <dc:hasLangue>
       <rdf:Description rdf:about="Allemand"/>
    </dc:hasLangue>
@@ -147,7 +137,7 @@
    <dc:rang rdf:datatype="&xsd;integer">1</dc:rang>
 </rdf:Description>
 
-<rdf:Description rdf:about="classementEcoMondeAll">
+<rdf:Description rdf:nodeID="classementEcoMondeAll">
    <dc:domaine>
       <rdf:Description rdf:about="Economie"/>
    </dc:domaine>
@@ -158,6 +148,7 @@
 </rdf:Description>
 
 <dc:Pays rdf:ID="Espagne">
+   <dc:Name rdf:datatype="&xsd;string">Espagne</dc:Name>
    <dc:continent>
       <rdf:Description rdf:about="Europe"/>
    </dc:continent>
@@ -265,11 +256,46 @@
 
 <rdf:Description rdf:about="QuestionsGroup">
    <rdf:type rdf:resource="Group"/>
-   <dc:question rdf:datatype="&xsd;string" >Langue ?</dc:question>
-   <dc:question rdf:datatype="&xsd;string">Capitale ?</dc:question>
+   <dc:hasQuestion>
+      <dc:question >
+         <dc:string rdf:datatype="&xsd;string">En %param%, quelle est la langue ?</dc:string>
+         <dc:param rdf:datatype="&xsd;string">langue</dc:param>
+      </dc:question>
+   </dc:hasQuestion>
+
+   <dc:hasQuestion>
+      <dc:question >
+         <dc:string rdf:datatype="&xsd;string">En %param%, quelle est la capitale ?</dc:string>
+         <dc:param rdf:datatype="&xsd;string">capitale</dc:param>
+      </dc:question>
+   </dc:hasQuestion>
+
+   <dc:hasQuestion>
+      <dc:question >
+         <dc:string rdf:datatype="&xsd;string">En %param%, qui est le président ?</dc:string>
+         <dc:param rdf:datatype="&xsd;string">president</dc:param>
+      </dc:question>
+   </dc:hasQuestion>
+
+   <dc:hasQuestion>
+      <dc:question >
+         <dc:string rdf:datatype="&xsd;string">Quelle est la surface de %param% ? (en km2)</dc:string>
+         <dc:param rdf:datatype="&xsd;string">surface</dc:param>
+      </dc:question>
+   </dc:hasQuestion>
+   
+   <dc:hasQuestion>
+      <dc:question >
+         <dc:string rdf:datatype="&xsd;string">Quelle est la surface de %param% ? (en km2)</dc:string>
+         <dc:param rdf:datatype="&xsd;string">surface</dc:param>
+      </dc:question>
+   </dc:hasQuestion>
+
+
    <dc:question rdf:datatype="&xsd;string">Surface de forêt ?</dc:question>
    <dc:question rdf:datatype="&xsd;string">Group ?</dc:question>
    <dc:question rdf:datatype="&xsd;string">Ville ?</dc:question>
+
 </rdf:Description>
 
 </rdf:RDF>
