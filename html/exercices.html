@@ -50,10 +50,20 @@
    var reponse = "";
 
    //Contient les questions et les requetes sparql associées
-   //Voir si on peut faire autrement...
    var questionsQuizz = new Array();
+
+   //Langue
    questionsQuizz[0] = new Array();
-   questionsQuizz[0]["question"] = "En <param>, Quelle est la langue ?";
+
+
+ 'select ?nameCity where ' +
+        '{'+
+            '?x <http://www.LearnCountriesWebApp.fr/Name> ?name.' +
+            'FILTER(?name = xsd:string("'+countryName+'"))'+
+         '}'
+
+
+   questionsQuizz[0]["question"] = "En <param>, quelle est la langue ?";
    questionsQuizz[0]["sparql"] = "select ?pays ?langage where {" +
                                     "service <http://dbpedia.org/sparql>{"+
                                        "?pays a <http://dbpedia.org/ontology/Country>."+
@@ -63,14 +73,37 @@
                                  "}}"+
                                  "ORDER BY ?pays OFFSET <randomNb> LIMIT 1";
 
+   //Capitale
    questionsQuizz[1] = new Array();
-   questionsQuizz[1]["question"] = "En <param>, Quelle est la capitale ?";
+   questionsQuizz[1]["question"] = "En <param>, quelle est la capitale ?";
    questionsQuizz[1]["sparql"] = "select ?pays ?capitale where {"+
                                     "service <http://dbpedia.org/sparql>{"+
                                        "?pays a <http://dbpedia.org/ontology/Country>."+
                                        "?pays dbpprop:capital ?p."+
                                        "?p dbpprop:name ?capitale."+
                                        "FILTER(langMatches(lang(?capitale), 'en') )"+
+                                 "}}"+
+                                 "ORDER BY ?pays OFFSET <randomNb> LIMIT 1";
+
+   //president
+   questionsQuizz[2] = new Array();
+   questionsQuizz[2]["question"] = "En <param>, qui est le président ?";
+   questionsQuizz[2]["sparql"] = "select ?pays ?presidentName where {"+
+                                    "service <http://dbpedia.org/sparql>{"+
+                                       "?pays a <http://dbpedia.org/ontology/Country>."+
+                                       "?pays dbpedia-owl:leader ?p."+
+                                       "?p dbpprop:name ?presidentName."+
+                                       "FILTER(langMatches(lang(?presidentName), 'en'))"+
+                                 "}}"+
+                                 "ORDER BY ?pays OFFSET <randomNb> LIMIT 1";
+
+   //surface
+   questionsQuizz[3] = new Array();
+   questionsQuizz[3]["question"] = "Quelle est la surface de <param> ? (en km2)";
+   questionsQuizz[3]["sparql"] = "select ?pays ?surface where {"+
+                                    "service <http://dbpedia.org/sparql>{"+
+                                       "?pays a <http://dbpedia.org/ontology/Country>."+
+                                       "?pays dbpprop:areaKm ?surface."+
                                  "}}"+
                                  "ORDER BY ?pays OFFSET <randomNb> LIMIT 1";
 
@@ -118,16 +151,15 @@
       $('#reponse3').text("rep3")*/
       generateQuestion()
    }
-   //Génère une question a propos d'un pays choisi aléatoirement
-   /*
-      TODO
-         -changer aléatoirement de type de question (langue, capitale,...)  --> questionsQuizz[X]
-   */
+   //Génère une questionaléatoire a propos d'un pays choisi aléatoirement
    generateQuestion = function() {
 
+      //Choose a random question from the question array
+      var randomQuestion = 3 //Math.floor((Math.random() * questionsQuizz.length)); //genere un nombre aleatoire entre 0 et le nombre de questions dans le tableau questionsQuizz
+
       var tab;
-      var randomNb = Math.floor((Math.random() * 1000) + 1);
-      var req = questionsQuizz[0]["sparql"].replace("<randomNb>", randomNb);
+      var randomNb = Math.floor((Math.random() * 300) + 1);
+      var req = questionsQuizz[randomQuestion]["sparql"].replace("<randomNb>", randomNb);
       givenQuery = escape(req);
       givenQuery = "http://localhost:8080/sparql/template?query=" + givenQuery  + " .s0, .s1";
       console.log("query");
@@ -140,15 +172,19 @@
                var pays = "";
                var res = "";
                row.children('td').each(function() {
-                  if(i == 0){
+                  if($(this).html() != "" && $(this).html().indexOf("http://dbpedia.org/") == -1 ){
                      res = $(this).html();
+                     console.log(res);
+                     res = res.replace(/"/g, '').replace("@en", "").replace("@fr", "").replace(" language", "");
                   }else{
                      pays = $(this).html();
+                     console.log(pays);
+                     pays = pays.replace("http://dbpedia.org/resource/", "").replace(/_/g," ");
                   }
                   i++;
                });
                //La mettre dans $('#question').text(question)
-               var question = questionsQuizz[0]["question"].replace("<param>", pays);
+               var question = questionsQuizz[randomQuestion]["question"].replace("<param>", pays);
                $('#questionQuizz').text(question);
                //Obtenir la réponse
                reponse = res;
