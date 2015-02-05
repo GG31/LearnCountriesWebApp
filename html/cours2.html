@@ -4,44 +4,46 @@
       <meta charset="utf-8" />
       <title>Learn Countries</title>
       <link rel="stylesheet" type="text/css" href="style.css">
-
+<style>
+table {
+border-collapse:collapse;
+ border-width:1px; 
+ border-style:solid; 
+ border-color:black;
+ width:50%;
+ }
+td { 
+ border-width:1px;
+ border-style:solid; 
+ border-color:black;
+ width:50%;
+ }
+</style>
       <script> 
-
-function retrieveAnswers(givenQuery, params){
-   console.log(givenQuery);
+function retrieveAnswers(givenQuery){
    givenQuery = escape(givenQuery);
    givenQuery = "http://localhost:8080/sparql/template?query=" + givenQuery  + " .s0, .s1";
+         console.log("query");
    $( "#pays" ).load(givenQuery, function(data){
       //var myList = $('tbody')
-            console.log("load");
-
       var table = $('<table></table>');
       $("#section").append(table);
       table.append($('<tr></tr>'));
-      for(i=0; i<params.length; i++) {
-         $('table:last tr').append($('<th>'+params[i]+'</th>'));
-      }
+            console.log("load");
       $('tr').each(function() {
-         rowTreatment($(this));
+         rowTreatment($(this))
       });
-      
    });
 }
 
 function rowTreatment(row) {
    console.log('treatment ' + row.html());
-
-   if(row != ""){
-   var line = '<tr>';
+   var line = "<tr>";
    row.children('td').each(function() {
-      if ($(this).text() != "") {
-         line = line + '<td>' + $(this).text().replace(/"/g, '').replace("^^xsd:double",'').replace(/\\/g, '').replace("@en", "").replace("@fr", "").replace(" language", "") + '</td>';
-         }
+      line = line + '<td>' + $(this).text().replace(/"/g, '').replace("^^xsd:double",'').replace(/\\/g, '').replace("@en", "").replace("@fr", "").replace(" language", ""); + '</td>';
    });
-   line = line + '</tr>';
-   $('#section table:last').append($(line));
-   }
-   //return line;
+   line = line + "</tr>";
+   $("#section table:last").append("<span>"+line+"</span>");
 }
 </script>
    </head>
@@ -64,6 +66,7 @@ function rowTreatment(row) {
 <div id="pays" style="display:none;"></div>
 <nav id="subsection">
 <ul>
+   <li id="Tout">Tout</li>
    <li id="originName">Origine du nom</li>
    <li id="continent">Continent</li>
    <li id="group">Groupes</li>
@@ -114,6 +117,12 @@ function rowTreatment(row) {
       } else if ($(this).attr('id') == "group") {
          groupQuery();
       } else if ($(this).attr('id') == "classementEco") {
+         classementEcoQuery();
+      } else if ($(this).attr('id') == "Tout") {
+         cityQuery();
+         originNameQuery();
+         continentQuery();
+         groupQuery();
          classementEcoQuery();
       }
    });
@@ -167,8 +176,7 @@ function rowTreatment(row) {
             '?zone <http://www.LearnCountriesWebApp.fr/hasName> ?zoneName.'+
             '?z <http://www.LearnCountriesWebApp.fr/rang> ?rang.' +
             'FILTER(?name = xsd:string("'+countryName+'"))'+
-
-         '}',["Rang", "Zone"])
+         '}')
    }
    
    $('#Capitale').click(function() {

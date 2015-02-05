@@ -10,15 +10,22 @@
 
 <rdfs:Class rdf:ID="Continent">
    <rdfs:label>Continent</rdfs:label>
+   <rdfs:subClassOf rdf:resource ="http://dbpedia.org/ontology/Continent"/>
+   <rdfs:comment>Vaste étendue de terre émergée, considérée comme une partie du monde et à laquelle on rattache les îles proches.</rdfs:comment>
 </rdfs:Class>
 <rdfs:Class rdf:ID="Pays">
    <rdfs:label>Pays</rdfs:label>
+   <rdfs:subClassOf rdf:resource ="http://dbpedia.org/ontology/Country"/>
+   <rdfs:comment>Territoire d'une nation délimité par des frontières et constituant une entité géographique.</rdfs:comment>
 </rdfs:Class>
 <rdfs:Class rdf:ID="Name">
    <rdfs:label>Name</rdfs:label>
+   <rdfs:subClassOf rdf:resource ="http://dbpedia.org/ontology/Name"/>
 </rdfs:Class>
 <rdfs:Class rdf:ID="Ville">
    <rdfs:label>Ville</rdfs:label>
+   <rdfs:subClassOf rdf:resource ="http://dbpedia.org/ontology/City"/>
+   <rdfs:comment>Agglomération relativement importante et dont les habitants ont des activités professionnelles diversifiées.</rdfs:comment>
 </rdfs:Class>
 <rdfs:Class rdf:ID="Group">
    <rdfs:label>Group</rdfs:label>
@@ -26,21 +33,29 @@
 </rdfs:Class>
 <rdfs:Class rdf:ID="Langue">
    <rdfs:label>Langue</rdfs:label>
+   <rdfs:subClassOf rdf:resource ="http://dbpedia.org/ontology/Language"/>
+   <rdfs:comment>Système de signes vocaux, éventuellement graphiques, propre à une communauté d'individus, qui l'utilisent pour s'exprimer et communiquer entre eux.</rdfs:comment>
 </rdfs:Class>
 
 <rdf:Property rdf:ID="originName">
   <rdfs:domain rdf:resource="Pays"/>
   <rdfs:range rdf:datatype="&xsd;string"/>
+  <rdfs:label xml:lang="en">has origin name</rdfs:label>
+  <rdfs:comment>Le nom du pays a pour origine originName</rdfs:comment>
 </rdf:Property>
 
 <rdf:Property rdf:ID="continent">
   <rdfs:domain rdf:resource="Pays"/>
   <rdfs:range rdf:resource="Continent"/>
+  <rdfs:label xml:lang="en">has continent</rdfs:label>
+  <rdfs:comment>Le pays fait partie du continent Continent</rdfs:comment>
 </rdf:Property>
 
 <rdf:Property rdf:ID="hasLangue">
   <rdfs:domain rdf:resource="Pays"/>
   <rdfs:range rdf:resource="Langue"/>
+  <rdfs:label xml:lang="en">has language</rdfs:label>
+  <rdfs:comment>On parle la Langue dans le Pays</rdfs:comment>
 </rdf:Property>
 
 <rdf:Property rdf:ID="hasName">
@@ -50,11 +65,15 @@
   <rdfs:domain rdf:resource="Group"/>
   <rdfs:domain rdf:resource="Ville"/>
   <rdfs:range rdf:datatype="&xsd;string"/>
+  <rdfs:label xml:lang="en">has name</rdfs:label>
+  <rdfs:comment>Le nom permet d'attacher une étiquette string à la ressource.</rdfs:comment>
 </rdf:Property>
 
 <rdf:Property rdf:ID="memberOf">
   <rdfs:domain rdf:resource="Pays"/>
   <rdfs:range rdf:resource="Group"/>
+  <rdfs:label xml:lang="en">is member of</rdfs:label>
+  <rdfs:comment>Le pays est membre d'un groupe.</rdfs:comment>
 </rdf:Property>
 
 <rdf:Property rdf:ID="classement">
@@ -65,11 +84,15 @@
 <rdf:Property rdf:ID="hasVille">
   <rdfs:domain rdf:resource="Pays"/>
   <rdfs:range rdf:resource="Ville"/>
+  <rdfs:label xml:lang="en">has city</rdfs:label>
+  <rdfs:comment>La ville est dans le pays.</rdfs:comment>
 </rdf:Property>
 
 <rdf:Property rdf:ID="climat">
   <rdfs:domain rdf:resource="Pays"/>
   <rdfs:range rdf:datatype="&xsd;string"/>
+  <rdfs:label xml:lang="en">has climat</rdfs:label>
+  <rdfs:comment>Le climat est dans le pays</rdfs:comment>
 </rdf:Property>
 
 <rdf:Property rdf:ID="foret">
