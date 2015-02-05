@@ -96,7 +96,10 @@
             dc:string "En %param%, qui est le président ?"^^xsd:string ],
         [ a dc:question ;
             dc:param "langue"^^xsd:string ;
-            dc:string "En %param%, quelle est la langue ?"^^xsd:string ] ;
+            dc:string "En %param%, quelle est la langue ?"^^xsd:string ],
+        [ a dc:question ;
+            dc:param "nbVilles"^^xsd:string ;
+            dc:string "En %param%, combien y a-t-il de villes ?"^^xsd:string ] ;
     dc:question "Group ?"^^xsd:string,
         "Surface de forêt ?"^^xsd:string,
         "Ville ?"^^xsd:string .

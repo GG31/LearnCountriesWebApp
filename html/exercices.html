@@ -102,9 +102,11 @@ $( document ).ready(function() {
    }
    //Génère une questionaléatoire a propos d'un pays choisi aléatoirement
    generateQuestion = function() {
-
       //Choose a random question from the question array
-      var randomQuestion = 3 //Math.floor((Math.random() * questionsQuizz.length)); //genere un nombre aleatoire entre 0 et le nombre de questions dans le tableau questionsQuizz
+      var randomQuestion = 0;
+      while(randomQuestion == 0){
+         randomQuestion = Math.floor((Math.random() * questionsQuizz.length)); //genere un nombre aleatoire entre 0 et le nombre de questions dans le tableau questionsQuizz
+      }
 
       var tab;
       var randomNb = Math.floor((Math.random() * 300) + 1);
@@ -121,14 +123,17 @@ $( document ).ready(function() {
                var pays = "";
                var res = "";
                row.children('td').each(function() {
-                  if($(this).html() != "" && $(this).html().indexOf("http://dbpedia.org/") == -1 ){
-                     res = $(this).html();
-                     console.log(res);
-                     res = res.replace(/"/g, '').replace("@en", "").replace("@fr", "").replace(" language", "");
-                  }else{
+                  if($(this).html() != "" && $(this).html().indexOf("rdf/pays-withRules.nt") != -1){
                      pays = $(this).html();
-                     console.log(pays);
-                     pays = pays.replace("http://dbpedia.org/resource/", "").replace(/_/g," ");
+                     pays = pays.replace("file:///home/bulte/Bureau/Cours/S2/WebSem/Projet/LearnCountriesWebApp/rdf/pays-withRules.nt#", "");
+                  }else{
+                     if($(this).html() != "" && $(this).html().indexOf("http://dbpedia.org/") == -1){
+                        res = $(this).html();
+                        res = res.replace(/"/g, '').replace("@en", "").replace("@fr", "").replace(" language", "");
+                     }else{
+                        pays = $(this).html();
+                        pays = pays.replace("http://dbpedia.org/resource/", "").replace(/_/g," ");
+                     }
                   }
                   i++;
                });
@@ -255,6 +260,16 @@ function retrieveQuestionsFromRDF(){
                                              "?pays dbpprop:areaKm ?surface."+
                                        "}}"+
                                        "ORDER BY ?pays OFFSET <randomNb> LIMIT 1";
+
+                  }else if(param[index] == "\"nbVilles\""){
+                     //nbVilles
+                     questionsQuizz[index] = new Array();
+                     questionsQuizz[index]["question"] = question[index];
+                     questionsQuizz[index]["sparql"] = "select ?pays ?nbVilles where {" +
+                                          "?pays a <http://www.LearnCountriesWebApp.fr/Pays>." +
+                                          "?x <http://www.LearnCountriesWebApp.fr/hasNbVille> ?nbVilles."+
+                                       "}"+
+                                       "ORDER BY ?pays OFFSET 2 LIMIT 1";
                   }
                   index++;
                });
