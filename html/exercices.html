@@ -221,43 +221,43 @@ function retrieveQuestionsFromRDF(){
                                           "FILTER(langMatches(lang(?langage), 'en') || langMatches(lang(?langage), 'fr'))"+
                                     "}}"+
                                     "ORDER BY ?pays OFFSET <randomNb> LIMIT 1";
-               }else if(param[index] == "\"capitale\""){
-                  //Capitale
-                  questionsQuizz[index] = new Array();
-                  questionsQuizz[index]["question"] = question[index];
-                  questionsQuizz[index]["sparql"] = "select ?pays ?capitale where {"+
-                                       "service <http://dbpedia.org/sparql>{"+
-                                          "?pays a <http://dbpedia.org/ontology/Country>."+
-                                          "?pays dbpprop:capital ?p."+
-                                          "?p dbpprop:name ?capitale."+
-                                          "FILTER(langMatches(lang(?capitale), 'en') )"+
-                                    "}}"+
-                                    "ORDER BY ?pays OFFSET <randomNb> LIMIT 1";
-               }else if(param[index] == "\"president\""){
-                  //president
-                  questionsQuizz[index] = new Array();
-                  questionsQuizz[index]["question"] = question[index];
-                  questionsQuizz[index]["sparql"] = "select ?pays ?presidentName where {"+
-                                       "service <http://dbpedia.org/sparql>{"+
-                                          "?pays a <http://dbpedia.org/ontology/Country>."+
-                                          "?pays dbpedia-owl:leader ?p."+
-                                          "?p dbpprop:name ?presidentName."+
-                                          "FILTER(langMatches(lang(?presidentName), 'en'))"+
-                                    "}}"+
-                                    "ORDER BY ?pays OFFSET <randomNb> LIMIT 1";
-               }else if(param[index] == "\"surface\""){
-                  //surface
-                  questionsQuizz[index] = new Array();
-                  questionsQuizz[index]["question"] = question[index];
-                  questionsQuizz[index]["sparql"] = "select ?pays ?surface where {"+
-                                       "service <http://dbpedia.org/sparql>{"+
-                                          "?pays a <http://dbpedia.org/ontology/Country>."+
-                                          "?pays dbpprop:areaKm ?surface."+
-                                    "}}"+
-                                    "ORDER BY ?pays OFFSET <randomNb> LIMIT 1";
-               }
-               index++;
-            });
+                  }else if(param[index] == "\"capitale\""){
+                     //Capitale
+                     questionsQuizz[index] = new Array();
+                     questionsQuizz[index]["question"] = question[index];
+                     questionsQuizz[index]["sparql"] = "select ?pays ?capitale where {"+
+                                          "service <http://dbpedia.org/sparql>{"+
+                                             "?pays a <http://dbpedia.org/ontology/Country>."+
+                                             "?pays dbpprop:capital ?p."+
+                                             "?p dbpprop:name ?capitale."+
+                                             "FILTER(langMatches(lang(?capitale), 'en') )"+
+                                       "}}"+
+                                       "ORDER BY ?pays OFFSET <randomNb> LIMIT 1";
+                  }else if(param[index] == "\"president\""){
+                     //president
+                     questionsQuizz[index] = new Array();
+                     questionsQuizz[index]["question"] = question[index];
+                     questionsQuizz[index]["sparql"] = "select ?pays ?presidentName where {"+
+                                          "service <http://dbpedia.org/sparql>{"+
+                                             "?pays a <http://dbpedia.org/ontology/Country>."+
+                                             "?pays dbpedia-owl:leader ?p."+
+                                             "?p dbpprop:name ?presidentName."+
+                                             "FILTER(langMatches(lang(?presidentName), 'en'))"+
+                                       "}}"+
+                                       "ORDER BY ?pays OFFSET <randomNb> LIMIT 1";
+                  }else if(param[index] == "\"surface\""){
+                     //surface
+                     questionsQuizz[index] = new Array();
+                     questionsQuizz[index]["question"] = question[index];
+                     questionsQuizz[index]["sparql"] = "select ?pays ?surface where {"+
+                                          "service <http://dbpedia.org/sparql>{"+
+                                             "?pays a <http://dbpedia.org/ontology/Country>."+
+                                             "?pays dbpprop:areaKm ?surface."+
+                                       "}}"+
+                                       "ORDER BY ?pays OFFSET <randomNb> LIMIT 1";
+                  }
+                  index++;
+               });
       });
 }
 </script>

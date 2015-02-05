@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+   <!ENTITY xsd      "http://www.w3.org/2001/XMLSchema#"> ]>
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xsd ="&xsd;"
+	xmlns:dc ="http://www.LearnCountriesWebApp.fr/"
+	xmlns:base="http://www.LearnCountriesWebApp.fr/" >
+
+<dc:Pays rdf:ID="France">
+   <dc:Name rdf:datatype="&xsd;string">France</dc:Name>
+   <rdf:type rdf:resource="Pays"/>
+   <dc:originName rdf:datatype="&xsd;string">franc</dc:originName>
+   <dc:continent>
+      <rdf:Description rdf:about="Europe"/>
+   </dc:continent>
+   <dc:hasLangue>
+      <rdf:Description rdf:about="Francais"/>
+   </dc:hasLangue>
+   <dc:memberOf>
+      <rdf:Description rdf:about="OTAN"/>
+   </dc:memberOf>
+   <dc:memberOf>
+      <rdf:Description rdf:about="G7"/>
+   </dc:memberOf>
+   <dc:memberOf>
+      <rdf:Description rdf:about="G20"/>
+   </dc:memberOf>
+   <dc:memberOf>
+      <rdf:Description rdf:about="Zone_Euro"/>
+   </dc:memberOf>
+   <dc:memberOf>
+      <rdf:Description rdf:about="Espace_Schengen"/>
+   </dc:memberOf>
+   <dc:classement rdf:nodeID="classementEco"/>
+   <dc:classement rdf:nodeID="classementEcoMonde"/>
+   <dc:climat rdf:datatype="&xsd;string">tempéré</dc:climat>
+
+   <dc:foret rdf:datatype="&xsd;string">28%</dc:foret>
+
+   <dc:hasVille>
+      <rdf:Description rdf:about="Toulouse">
+         <rdf:type rdf:resource="Ville"/>
+         <dc:Name rdf:datatype="&xsd;string">Toulouse</dc:Name>
+      </rdf:Description>
+   </dc:hasVille>
+   <dc:hasVille>
+      <rdf:Description rdf:about="Marseille">
+         <rdf:type rdf:resource="Ville"/>
+         <dc:Name rdf:datatype="&xsd;string">Marseille</dc:Name>
+      </rdf:Description></dc:hasVille>
+   <dc:hasVille>
+      <rdf:Description rdf:about="Narbonne">
+         <rdf:type rdf:resource="Ville"/>
+         <dc:Name rdf:datatype="&xsd;string">Narbonne</dc:Name>
+      </rdf:Description>
+   </dc:hasVille>
+</dc:Pays>
+
+<rdf:Description rdf:nodeID="classementEco">
+   <dc:domaine>
+      <rdf:Description rdf:about="Economie"/>
+   </dc:domaine>
+   <dc:zone>
+      <rdf:Description rdf:about="Zone_Euro"/>
+   </dc:zone>
+   <dc:rang rdf:datatype="&xsd;integer">2</dc:rang>
+</rdf:Description>
+
+<rdf:Description rdf:nodeID="classementEcoMonde">
+   <dc:domaine>
+      <rdf:Description rdf:about="Economie"/>
+   </dc:domaine>
+   <dc:zone>
+      <rdf:Description rdf:about="Monde"/>
+   </dc:zone>
+   <dc:rang rdf:datatype="&xsd;integer">5</dc:rang>
+</rdf:Description>
+
+
+<dc:Pays rdf:ID="Allemagne">
+   <dc:Name rdf:datatype="&xsd;string">Allemagne</dc:Name>
+   <dc:hasLangue>
+      <rdf:Description rdf:about="Allemand"/>
+   </dc:hasLangue>
+   <dc:originName rdf:datatype="&xsd;string">Thiuda</dc:originName>
+   <dc:continent>
+      <rdf:Description rdf:about="Europe"/>
+   </dc:continent>
+   <dc:memberOf>
+      <rdf:Description rdf:about="OTAN"/>
+   </dc:memberOf>
+   <dc:memberOf>
+      <rdf:Description rdf:about="G7"/>
+   </dc:memberOf>
+   <dc:memberOf>
+      <rdf:Description rdf:about="G20"/>
+   </dc:memberOf>
+   <dc:memberOf>
+      <rdf:Description rdf:about="Zone_Euro"/>
+   </dc:memberOf>
+   <dc:memberOf>
+      <rdf:Description rdf:about="Espace_Schengen"/>
+   </dc:memberOf>
+   <dc:classement rdf:nodeID="classementEcoAll"/>
+   <dc:classement rdf:nodeID="classementEcoMondeAll"/>
+   <dc:climat rdf:datatype="&xsd;string">tempéré</dc:climat>
+   <dc:foret rdf:datatype="&xsd;string">31%</dc:foret>
+   <dc:hasVille>
+      <rdf:Description rdf:about="Munich">
+         <rdf:type rdf:resource="Ville"/>
+         <dc:Name rdf:datatype="&xsd;string">Munich</dc:Name>
+      </rdf:Description>
+   </dc:hasVille>
+   <dc:hasVille>
+      <rdf:Description rdf:about="Hambourg">
+         <rdf:type rdf:resource="Ville"/>
+         <dc:Name rdf:datatype="&xsd;string">Hambourg</dc:Name>
+      </rdf:Description>
+   </dc:hasVille>
+   <dc:hasVille>
+      <rdf:Description rdf:about="Cologne">
+         <rdf:type rdf:resource="Ville"/>
+         <dc:Name rdf:datatype="&xsd;string">Cologne</dc:Name>
+      </rdf:Description>
+   </dc:hasVille>
+</dc:Pays>
+
+<rdf:Description rdf:nodeID="classementEcoAll">
+   <dc:domaine>
+      <rdf:Description rdf:about="Economie"/>
+   </dc:domaine>
+   <dc:zone>
+      <rdf:Description rdf:about="Zone_Euro"/>
+   </dc:zone>
+   <dc:rang rdf:datatype="&xsd;integer">1</dc:rang>
+</rdf:Description>
+
+<rdf:Description rdf:nodeID="classementEcoMondeAll">
+   <dc:domaine>
+      <rdf:Description rdf:about="Economie"/>
+   </dc:domaine>
+   <dc:zone>
+      <rdf:Description rdf:about="Monde"/>
+   </dc:zone>
+   <dc:rang rdf:datatype="&xsd;integer">4</dc:rang>
+</rdf:Description>
+
+<dc:Pays rdf:ID="Espagne">
+   <dc:Name rdf:datatype="&xsd;string">Espagne</dc:Name>
+   <dc:continent>
+      <rdf:Description rdf:about="Europe"/>
+   </dc:continent>
+   <dc:hasLangue>
+      <rdf:Description rdf:about="Espagnol"/>
+   </dc:hasLangue>
+   <dc:memberOf>
+      <rdf:Description rdf:about="UnionLatine"/>
+   </dc:memberOf>
+   <dc:memberOf>
+      <rdf:Description rdf:about="OTAN"/>
+   </dc:memberOf>
+   <dc:memberOf>
+      <rdf:Description rdf:about="G20"/>
+   </dc:memberOf>
+   <dc:memberOf>
+      <rdf:Description rdf:about="Zone_Euro"/>
+   </dc:memberOf>
+   <dc:memberOf>
+      <rdf:Description rdf:about="Espace_Schengen"/>
+   </dc:memberOf>
+   <dc:classement rdf:nodeID="classementEcoEs"/>
+   <dc:classement rdf:nodeID="classementEcoMondeEs"/>
+   <dc:climat rdf:datatype="&xsd;string">semi-aride</dc:climat>
+   <dc:climat rdf:datatype="&xsd;string">méditerranéen</dc:climat>
+   <dc:climat rdf:datatype="&xsd;string">océanique</dc:climat>
+   <dc:foret rdf:datatype="&xsd;string">36%</dc:foret>
+   <dc:hasVille>
+      <rdf:Description rdf:about="Cadiz">
+         <rdf:type rdf:resource="Ville"/>
+         <dc:Name rdf:datatype="&xsd;string">Cadiz</dc:Name>
+      </rdf:Description>
+   </dc:hasVille>
+   <dc:hasVille>
+      <rdf:Description rdf:about="Barcelone">
+         <rdf:type rdf:resource="Ville"/>
+         <dc:Name rdf:datatype="&xsd;string">Barcelone</dc:Name>
+      </rdf:Description>
+   </dc:hasVille>
+   <dc:hasVille>
+      <rdf:Description rdf:about="Seville">
+         <rdf:type rdf:resource="Ville"/>
+         <dc:Name rdf:datatype="&xsd;string">Seville</dc:Name>
+      </rdf:Description>
+   </dc:hasVille>
+</dc:Pays>
+
+<rdf:Description rdf:nodeID="classementEcoEs">
+   <dc:domaine>
+      <rdf:Description rdf:about="Economie"/>
+   </dc:domaine>
+   <dc:zone>
+      <rdf:Description rdf:about="Zone_Euro"/>
+   </dc:zone>
+   <dc:rang rdf:datatype="&xsd;integer">6</dc:rang>
+</rdf:Description>
+
+<rdf:Description rdf:nodeID="classementEcoMondeEs">
+   <dc:domaine>
+      <rdf:Description rdf:about="Economie"/>
+   </dc:domaine>
+   <dc:zone>
+      <rdf:Description rdf:about="Monde"/>
+   </dc:zone>
+   <dc:rang rdf:datatype="&xsd;integer">9</dc:rang>
+</rdf:Description>
+
+<rdf:Description rdf:about="OTAN">
+   <rdf:type rdf:resource="Group"/>
+   <dc:hasName rdf:datatype="&xsd;string">OTAN</dc:hasName>
+</rdf:Description>
+<rdf:Description rdf:about="G7">
+   <rdf:type rdf:resource="Group"/>
+   <dc:hasName rdf:datatype="&xsd;string">G7</dc:hasName>
+</rdf:Description>
+<rdf:Description rdf:about="G20">
+   <rdf:type rdf:resource="Group"/>
+   <dc:hasName rdf:datatype="&xsd;string">G20</dc:hasName>
+</rdf:Description>
+<rdf:Description rdf:about="Espace_Schengen">
+   <rdf:type rdf:resource="Group"/>
+   <dc:hasName rdf:datatype="&xsd;string">Espace Schengen</dc:hasName>
+</rdf:Description>
+<rdf:Description rdf:about="Zone_Euro">
+   <rdf:type rdf:resource="Group"/>
+   <dc:hasName rdf:datatype="&xsd;string">Europe</dc:hasName>
+</rdf:Description>
+
+<rdf:Description rdf:about="Europe">
+   <rdf:type rdf:resource="Continent"/>
+   <dc:hasName rdf:datatype="&xsd;string">Europe</dc:hasName>
+</rdf:Description>
+<rdf:Description rdf:about="Allemand">
+   <rdf:type rdf:resource="Langue"/>
+   <dc:hasName rdf:datatype="&xsd;string">Allemand</dc:hasName>
+</rdf:Description>
+<rdf:Description rdf:about="Francais">
+   <rdf:type rdf:resource="Langue"/>
+   <dc:hasName rdf:datatype="&xsd;string">Francais</dc:hasName>
+</rdf:Description>
+<rdf:Description rdf:about="Espagnol">
+   <rdf:type rdf:resource="Langue"/>
+   <dc:hasName rdf:datatype="&xsd;string">Espagnol</dc:hasName>
+</rdf:Description>
+
+<rdf:Description rdf:about="QuestionsGroup">
+   <rdf:type rdf:resource="Group"/>
+   <dc:hasQuestion>
+      <dc:question >
+         <dc:string rdf:datatype="&xsd;string">En %param%, quelle est la langue ?</dc:string>
+         <dc:param rdf:datatype="&xsd;string">langue</dc:param>
+      </dc:question>
+   </dc:hasQuestion>
+
+   <dc:hasQuestion>
+      <dc:question >
+         <dc:string rdf:datatype="&xsd;string">En %param%, quelle est la capitale ?</dc:string>
+         <dc:param rdf:datatype="&xsd;string">capitale</dc:param>
+      </dc:question>
+   </dc:hasQuestion>
+
+   <dc:hasQuestion>
+      <dc:question >
+         <dc:string rdf:datatype="&xsd;string">En %param%, qui est le président ?</dc:string>
+         <dc:param rdf:datatype="&xsd;string">president</dc:param>
+      </dc:question>
+   </dc:hasQuestion>
+
+   <dc:hasQuestion>
+      <dc:question >
+         <dc:string rdf:datatype="&xsd;string">Quelle est la surface de %param% ? (en km2)</dc:string>
+         <dc:param rdf:datatype="&xsd;string">surface</dc:param>
+      </dc:question>
+   </dc:hasQuestion>
+   
+   <dc:hasQuestion>
+      <dc:question >
+         <dc:string rdf:datatype="&xsd;string">Quelle est la surface de %param% ? (en km2)</dc:string>
+         <dc:param rdf:datatype="&xsd;string">surface</dc:param>
+      </dc:question>
+   </dc:hasQuestion>
+
+
+   <dc:question rdf:datatype="&xsd;string">Surface de forêt ?</dc:question>
+   <dc:question rdf:datatype="&xsd;string">Group ?</dc:question>
+   <dc:question rdf:datatype="&xsd;string">Ville ?</dc:question>
+
+</rdf:Description>
+
+</rdf:RDF>
