@@ -73,7 +73,7 @@ $( document ).ready(function() {
       } else if (type == "QCM") {
          generateQCM()
       }
-      reponse = "yo"
+      reponse = ""
    });
    $('#corriger').click(function() {
       var rep = ""
@@ -145,10 +145,37 @@ $( document ).ready(function() {
                if(type == "QCM") {
                   $('#questionQCM').text(question);
                   var nb = Math.floor((Math.random() * 3) + 1);
-                  $('#reponse1').text("rep1")
-                  $('#reponse2').text("rep2")
-                  $('#reponse3').text("rep3")
-                  $('#reponse'+nb).text(reponse);
+
+                  var tab = new Array();
+                  tab[0] = "Francois Hollande";
+                  tab[1] = "Paris";
+                  tab[2] = "Francais";
+                  tab[3] = "Robert Mugabe";
+                  tab[4] = "Madrid";
+                  tab[5] = "Chinois";
+                  tab[6] = "Barak Obama";
+                  tab[7] = "Sidney";
+                  tab[8] = "Quebecois";
+                  tab[9] = "Geoges W Bush";
+                  tab[10] = "Honk Kong";
+                  tab[11] = "Japonnais";
+
+                  var rep1 = Math.floor((Math.random() * 11) + 1);
+                  var rep2 = Math.floor((Math.random() * 11) + 1);
+
+                  if(nb == 1){
+                     $('#reponse1').text(reponse)
+                     $('#reponse2').text(tab[rep1])
+                     $('#reponse3').text(tab[rep2])
+                  }else if(nb == 2){
+                     $('#reponse1').text(tab[rep1])
+                     $('#reponse2').text(reponse)
+                     $('#reponse3').text(tab[rep2])
+                  }else{
+                     $('#reponse1').text(tab[rep1])
+                     $('#reponse2').text(tab[rep2])
+                     $('#reponse3').text(reponse)
+                  }
                }
          });
       });
