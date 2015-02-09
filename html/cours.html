@@ -4,7 +4,21 @@
       <meta charset="utf-8" />
       <title>Learn Countries</title>
       <link rel="stylesheet" type="text/css" href="style.css">
-
+      <style>
+         table {
+            border-collapse:collapse;
+            border-width:1px;
+            border-style:solid;
+            border-color:black;
+            width:50%;
+         }
+         td {
+            border-width:1px;
+            border-style:solid;
+            border-color:black;
+            width:50%;
+         }
+      </style>
       <script> 
 
 function retrieveAnswers(givenQuery, params){
@@ -126,7 +140,7 @@ function rowTreatment(row) {
             '?x <http://www.LearnCountriesWebApp.fr/hasVille> ?z.'+
             '?z <http://www.LearnCountriesWebApp.fr/Name> ?nameCity.'+
             'FILTER(?name = xsd:string("'+countryName+'"))'+
-         '}')
+         '}', ["Nom Ville"])
    }
    originNameQuery = function() {
       retrieveAnswers(
@@ -135,7 +149,7 @@ function rowTreatment(row) {
             '?x <http://www.LearnCountriesWebApp.fr/Name> ?name.' +
             '?x <http://www.LearnCountriesWebApp.fr/originName> ?z.'+
             'FILTER(?name = xsd:string("'+countryName+'"))'+
-         '}')
+         '}', ["Origine du nom"])
    }
    continentQuery = function() {
    retrieveAnswers(
@@ -145,7 +159,7 @@ function rowTreatment(row) {
             '?x <http://www.LearnCountriesWebApp.fr/continent> ?z.'+
             '?z <http://www.LearnCountriesWebApp.fr/hasName> ?nameContinent.'+
             'FILTER(?name = xsd:string("'+countryName+'"))'+
-         '}')
+         '}', ["Continent"])
    }
    groupQuery = function() {
    retrieveAnswers(
@@ -155,7 +169,7 @@ function rowTreatment(row) {
             '?x <http://www.LearnCountriesWebApp.fr/memberOf> ?z.'+
             '?z <http://www.LearnCountriesWebApp.fr/hasName> ?nameGroup.'+
             'FILTER(?name = xsd:string("'+countryName+'"))'+
-         '}')
+         '}',["Groupe"])
    }
    classementEcoQuery = function() {
       retrieveAnswers(
@@ -183,7 +197,7 @@ function rowTreatment(row) {
             '?capital <http://dbpedia.org/property/name> ?capitalName.'+
             //'FILTER(lang(?capitalName)="en")'+
         '}'+
-      '}')
+      '}', ["Pays", "Capitale"])
    });
    $('#Devise').click(function() {
       clean();
@@ -195,7 +209,7 @@ function rowTreatment(row) {
             '?pays <http://dbpedia.org/ontology/longName> ?anamePays' +
             '?pays <http://dbpedia.org/ontology/motto> ?devise.'+
         '}'+
-      '}')
+      '}',["Pays", "Devise"])
    });
    $('#Langue').click(function() {
       clean();
@@ -209,7 +223,7 @@ function rowTreatment(row) {
       '?p <http://dbpedia.org/property/nativename> ?language. '+
       'FILTER(lang(?language)="en" || lang(?language) = "fr")'+
   '}'+
-'}')
+'}', ["Pays", "Langue"])
    });
    
    $('#President').click(function() {
@@ -223,7 +237,7 @@ function rowTreatment(row) {
             '?pays <http://dbpedia.org/ontology/leader> ?leader.'+
             //'FILTER(lang(?presidentName)="en")'+ Si on filtre, y a plus de résultat
         '}'+
-      '}')
+      '}', ["Pays", "Président"])
    });
    
    $('#Surface').click(function() {
@@ -236,7 +250,7 @@ function rowTreatment(row) {
       '?pays <http://dbpedia.org/ontology/longName> ?anamePays' +
       '?pays <http://dbpedia.org/property/areaKm> ?surface.'+
   '}'+
-'}')
+'}', ["Pays", "Surface (km2)"])
    });
    
    clean = function() {
